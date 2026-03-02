@@ -57,8 +57,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Copy i18n config needed at runtime
+# Copy i18n config + its runtime dependencies not traced by standalone
 COPY --from=builder /app/next-i18next.config.js ./next-i18next.config.js
+COPY --from=builder /app/node_modules/tiny-invariant ./node_modules/tiny-invariant
 
 USER nextjs
 
