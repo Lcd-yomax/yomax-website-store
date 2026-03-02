@@ -1,14 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import {
-  billingAddressAtom,
   clearCheckoutAtom,
-  shippingAddressAtom,
 } from '@store/checkout';
 import dynamic from 'next/dynamic';
-import { AddressType } from '@framework/utils/constants';
 import { useAtom } from 'jotai';
 import { useEffect } from 'react';
-import GuestName from '@components/checkout/guest-name';
 import { useSettings } from '@framework/settings';
 import Spinner from '@components/ui/loaders/spinner/spinner';
 import { useRouter } from 'next/router';
@@ -17,11 +13,8 @@ import { ROUTES } from '@lib/routes';
 
 export { getStaticProps } from '@framework/common.ssr';
 
-const ScheduleGrid = dynamic(
-  () => import('@components/checkout/schedule/schedule-grid')
-);
-const GuestAddressGrid = dynamic(
-  () => import('@components/checkout/address-grid-guest')
+const CustomerInfoGrid = dynamic(
+  () => import('@components/checkout/customer-info-grid')
 );
 const ContactGrid = dynamic(
   () => import('@components/checkout/contact/contact-grid')
@@ -38,8 +31,6 @@ export default function GuestCheckoutPage() {
   // const { me } = useUser();
   const { t } = useTranslation();
   const [, resetCheckout] = useAtom(clearCheckoutAtom);
-  const [billingAddress] = useAtom(billingAddressAtom);
-  const [shippingAddress] = useAtom(shippingAddressAtom);
   const router = useRouter();
   const { data, isLoading } = useSettings();
   const settings = data?.options!;
@@ -69,37 +60,14 @@ export default function GuestCheckoutPage() {
                 label={t('text-contact-number')}
                 count={1}
               />
-              <GuestName
+              <CustomerInfoGrid
                 className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                label={t('Personal Information')}
+                label={t('text-contact-info') || 'Informations de contact'}
                 count={2}
-              />
-              <GuestAddressGrid
-                className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                label={t('text-billing-address')}
-                count={3}
-                addresses={billingAddress ? [billingAddress] : []}
-                //@ts-ignore
-                atom={billingAddressAtom}
-                type={AddressType.Billing}
-              />
-              <GuestAddressGrid
-                className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                label={t('text-shipping-address')}
-                count={4}
-                addresses={shippingAddress ? [shippingAddress] : []}
-                //@ts-ignore
-                atom={shippingAddressAtom}
-                type={AddressType.Shipping}
-              />
-              <ScheduleGrid
-                className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                label={t('text-delivery-schedule')}
-                count={5}
               />
               <OrderNote
                 className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                count={6}
+                count={3}
                 label={t('Order Note')}
               />
             </div>

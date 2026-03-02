@@ -7,12 +7,11 @@ import {
   couponAtom,
 } from '@store/checkout';
 import {
-  calculatePaidTotal,
   calculateTotal,
 } from '@store/quick-cart/cart.utils';
 import isEmpty from 'lodash/isEmpty';
 
-const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER;
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '+2120631192323';
 
 export const WhatsAppOrderAction: React.FC = () => {
   const { items } = useCart();
@@ -21,31 +20,17 @@ export const WhatsAppOrderAction: React.FC = () => {
   const [coupon] = useAtom(couponAtom);
   const [
     {
-      shipping_address,
-      delivery_time,
+      billing_address,
       customer_contact,
       customer_name,
       customer_email,
-      verified_response,
       note,
     },
   ] = useAtom(checkoutAtom);
 
-  const available_items = items?.filter(
-    (item) => !verified_response?.unavailable_products?.includes(item.id)
-  );
-
-  const subtotal = calculateTotal(available_items);
-  const tax = verified_response?.total_tax ?? 0;
-  const shippingCharge = verified_response?.shipping_charge ?? 0;
-  const total = calculatePaidTotal(
-    {
-      totalAmount: subtotal,
-      tax,
-      shipping_charge: shippingCharge,
-    },
-    Number(discount)
-  );
+  const subtotal = calculateTotal(items);
+  const totalAmount = subtotal - (Number(discount) || 0);
+  const total = totalAmount > 0 ? totalAmount : 0;
 
   const buildMessage = () => {
     const lines: string[] = [];
@@ -59,24 +44,19 @@ export const WhatsAppOrderAction: React.FC = () => {
     if (customer_contact) lines.push(`📞 *Tél :* ${customer_contact}`);
     lines.push('');
 
-    // Shipping address
-    const addr = shipping_address?.address;
+    // Address
+    const addr = billing_address?.address;
     if (addr) {
       const parts = [addr.street_address, addr.city, addr.state, addr.zip, addr.country].filter(Boolean);
       if (parts.length) {
         lines.push(`📍 *Adresse :* ${parts.join(', ')}`);
       }
     }
-
-    // Delivery time
-    if (delivery_time?.title) {
-      lines.push(`🕐 *Livraison :* ${delivery_time.title}`);
-    }
     lines.push('');
 
     // Items
     lines.push('📦 *Articles :*');
-    available_items?.forEach((item, index) => {
+    items?.forEach((item, index) => {
       const qty = item.quantity ?? 1;
       const itemTotal = (item.price * qty).toFixed(2);
       lines.push(`  ${index + 1}. ${item.name} × ${qty} — ${itemTotal} MAD`);
@@ -85,9 +65,6 @@ export const WhatsAppOrderAction: React.FC = () => {
 
     // Totals
     lines.push(`💰 *Sous-total :* ${subtotal.toFixed(2)} MAD`);
-    if (tax > 0) lines.push(`🧾 *Taxe :* ${tax.toFixed(2)} MAD`);
-    if (shippingCharge > 0)
-      lines.push(`🚚 *Livraison :* ${shippingCharge.toFixed(2)} MAD`);
     if (discount && coupon) {
       lines.push(`🏷️ *Réduction (${coupon.code}) :* -${Number(discount).toFixed(2)} MAD`);
     }
@@ -109,16 +86,14 @@ export const WhatsAppOrderAction: React.FC = () => {
     window.open(url, '_blank');
   };
 
-  const isReady = [customer_contact, available_items].every(
-    (item) => !isEmpty(item)
-  );
+  const isReady = !isEmpty(items);
 
   return (
     <div className="px-6">
       <Button
         className="w-full my-2"
         onClick={handleWhatsAppOrder}
-        disabled={!isReady || !WHATSAPP_NUMBER}
+        disabled={!isReady}
         style={{ backgroundColor: '#25D366', borderColor: '#25D366' }}
       >
         <svg

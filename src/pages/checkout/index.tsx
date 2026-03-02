@@ -1,20 +1,15 @@
 import { useTranslation } from 'next-i18next';
-import { billingAddressAtom, shippingAddressAtom } from '@store/checkout';
 import dynamic from 'next/dynamic';
 import { useUser } from '@framework/auth';
-import { AddressType } from '@framework/utils/constants';
 import { getLayout } from '@components/layout/layout';
-import { Address } from '@type/index';
 import Divider from '@components/ui/divider';
 import Container from '@components/ui/container';
-import Subscription from '@components/common/subscription';
 
 export { getStaticProps } from '@framework/common.ssr';
 
-const ScheduleGrid = dynamic(
-  () => import('@components/checkout/schedule/schedule-grid')
+const CustomerInfoGrid = dynamic(
+  () => import('@components/checkout/customer-info-grid')
 );
-const AddressGrid = dynamic(() => import('@components/checkout/address-grid'));
 const ContactGrid = dynamic(
   () => import('@components/checkout/contact/contact-grid')
 );
@@ -46,41 +41,14 @@ export default function CheckoutPage() {
                     count={1}
                   />
 
-                  <AddressGrid
-                    userId={me?.id!}
+                  <CustomerInfoGrid
                     className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                    label={t('text-billing-address')}
+                    label={t('text-contact-info') || 'Informations de contact'}
                     count={2}
-                    //@ts-ignore
-                    addresses={me?.address?.filter(
-                      (address: Address) =>
-                        address?.type === AddressType?.Billing
-                    )}
-                    //@ts-ignore
-                    atom={billingAddressAtom}
-                    type={AddressType?.Billing}
                   />
-                  <AddressGrid
-                    userId={me?.id!}
-                    className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
-                    label={t('text-shipping-address')}
-                    count={3}
-                    //@ts-ignore
-                    addresses={me?.address?.filter(
-                      (address: Address) =>
-                        address?.type === AddressType?.Shipping
-                    )}
-                    //@ts-ignore
-                    atom={shippingAddressAtom}
-                    type={AddressType?.Shipping}
-                  />
-                  <ScheduleGrid
-                    className="p-5 md:p-8 bg-white shadow-checkoutCard rounded-md"
-                    label={t('text-delivery-schedule')}
-                    count={4}
-                  />
+
                   <OrderNote
-                    count={5}
+                    count={3}
                     label={t('Order Note')}
                     className="p-5 bg-white border border-gray-100 rounded-md shadow-checkoutCard md:p-7"
                   />

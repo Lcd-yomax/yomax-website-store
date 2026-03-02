@@ -5,19 +5,15 @@ import { CloseIcon } from '@components/icons/close-icon';
 import { useTranslation } from 'next-i18next';
 import { useCart } from '@store/quick-cart/cart.context';
 import {
-  calculatePaidTotal,
   calculateTotal,
 } from "@store/quick-cart/cart.utils";
 import { useAtom } from "jotai";
 import {
   couponAtom,
   discountAtom,
-  verifiedResponseAtom,
 } from '@store/checkout';
 import ItemCard from '@components/checkout/item/item-card';
 import { ItemInfoRow } from '@components/checkout/item/item-info-row';
-import PaymentGrid from '@components/checkout/payment/payment-grid';
-import { PlaceOrderAction } from '@components/checkout/action/place-order-action';
 import { WhatsAppOrderAction } from '@components/checkout/action/whatsapp-order-action';
 
 interface Props {
@@ -26,32 +22,13 @@ interface Props {
 const VerifiedItemList: React.FC<Props> = ({ className }) => {
   const { t } = useTranslation("common");
   const { items, isEmpty: isEmptyCart } = useCart();
-  const [verifiedResponse] = useAtom(verifiedResponseAtom);
   const [coupon, setCoupon] = useAtom(couponAtom);
   const [discount] = useAtom(discountAtom);
 
-  const available_items = items?.filter(
-    (item) => !verifiedResponse?.unavailable_products?.includes(item.id)
-  );
-
-  const { price: tax } = usePrice(
-    verifiedResponse && {
-      amount: verifiedResponse.total_tax ?? 0,
-    }
-  );
-
-  const { price: shipping } = usePrice(
-    verifiedResponse && {
-      amount: verifiedResponse.shipping_charge ?? 0,
-    }
-  );
-
-  const base_amount = calculateTotal(available_items);
-  const { price: sub_total } = usePrice(
-    verifiedResponse && {
-      amount: base_amount,
-    }
-  );
+  const base_amount = calculateTotal(items);
+  const { price: sub_total } = usePrice({
+    amount: base_amount,
+  });
 
   const { price: discountPrice } = usePrice(
     //@ts-ignore
@@ -60,18 +37,11 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
     }
   );
 
-  const { price: total } = usePrice(
-    verifiedResponse && {
-      amount: calculatePaidTotal(
-        {
-          totalAmount: base_amount,
-          tax: verifiedResponse?.total_tax,
-          shipping_charge: verifiedResponse?.shipping_charge,
-        },
-        Number(discount)
-      ),
-    }
-  );
+  const totalAmount = base_amount - (Number(discount) || 0);
+  const { price: total } = usePrice({
+    amount: totalAmount > 0 ? totalAmount : 0,
+  });
+
   return (
     <div className={className}>
       <div className="flex flex-col">
@@ -81,18 +51,13 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
         </div>
         {!isEmptyCart ? (
           <div className="px-6 py-2.5">
-            {items?.map((item) => {
-              const notAvailable = verifiedResponse?.unavailable_products?.find(
-                (d: any) => d === item.id
-              );
-              return (
-                <ItemCard
-                  item={item}
-                  key={item.id}
-                  notAvailable={!!notAvailable}
-                />
-              );
-            })}
+            {items?.map((item) => (
+              <ItemCard
+                item={item}
+                key={item.id}
+                notAvailable={false}
+              />
+            ))}
           </div>
         ) : (
           <EmptyCartIcon />
@@ -101,8 +66,6 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
 
       <div className="">
         <ItemInfoRow title={t('text-sub-total')} value={sub_total} />
-        <ItemInfoRow title={t('text-tax')} value={tax} />
-        <ItemInfoRow title={t('text-shipping')} value={shipping} />
         {discount && coupon ? (
           <div className="flex justify-between px-6 py-5 border-t border-gray-100">
             <p className="text-sm text-body ltr:mr-4 rtl:ml-4">
@@ -128,8 +91,6 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
           <span className="text-base font-semibold text-heading">{total}</span>
         </div>
       </div>
-      <PaymentGrid className="px-6 py-5 border border-gray-100" />
-      <PlaceOrderAction>{t('button-place-order')}</PlaceOrderAction>
       <WhatsAppOrderAction />
     </div>
   );

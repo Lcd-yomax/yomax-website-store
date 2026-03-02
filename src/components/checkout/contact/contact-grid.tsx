@@ -1,11 +1,7 @@
 import { useEffect } from "react";
 import { useAtom } from "jotai";
 import { customerContactAtom } from "@store/checkout";
-import PlusIcon from "@components/icons/plus-icon";
-import { useTranslation } from "next-i18next";
-import { useUI } from "@contexts/ui.context";
 import PhoneInput from '@components/ui/forms/phone-input';
-import classNames from "classnames";
 
 interface ContactProps {
   contact: string | undefined | null;
@@ -16,29 +12,14 @@ interface ContactProps {
   className?: string;
 }
 
-const ContactGrid = ({ contact, label, count, className, userId, profileId }: ContactProps) => {
+const ContactGrid = ({ contact, label, count, className }: ContactProps) => {
   const [contactNumber, setContactNumber] = useAtom(customerContactAtom);
-  const { openModal, setModalView, setModalData } = useUI();
-  const { t } = useTranslation("common");
 
   useEffect(() => {
     if (contact) {
       setContactNumber(contact);
-      return;
     }
-    setContactNumber('');
   }, [contact, setContactNumber]);
-
-  function onAddOrChange() {
-    setModalData({
-      customerId: userId,
-      profileId,
-      contact,
-    })
-    setModalView("ADD_OR_UPDATE_CHECKOUT_CONTACT");
-
-    return openModal();
-  }
 
   return (
     <div className={className}>
@@ -51,32 +32,17 @@ const ContactGrid = ({ contact, label, count, className, userId, profileId }: Co
           )}
           {label}
         </div>
-
-        <button
-          className="flex items-center text-sm font-semibold text-heading transition-colors duration-200 focus:outline-none focus:opacity-70 hover:opacity-70 mt-1"
-          onClick={onAddOrChange}
-        >
-          <PlusIcon className="w-4 h-4 stroke-2 ltr:mr-0.5 rtl:ml-0.5 relative top-[1px]" />
-          {contactNumber ? t("text-update") : t("text-add")}
-        </button>
       </div>
 
-      <div className={classNames('w-full')}>
+      <div className="w-full">
         <PhoneInput
-          country="us"
+          country="ma"
           value={contactNumber}
-          disabled={true}
+          onChange={(value: string) => setContactNumber(value)}
           inputClass="!p-0 ltr:!pr-4 rtl:!pl-4 ltr:!pl-14 rtl:!pr-14 !flex !items-center !w-full !appearance-none !transition !duration-300 !ease-in-out !text-heading !text-sm focus:!outline-none focus:!ring-0 !border !border-gray-400 !rounded focus:!border-heading !h-12"
           dropdownClass="focus:!ring-0 !border !border-gray-400 !shadow-350"
         />
       </div>
-
-      {/* <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
-        <ContactCard
-          checked={Boolean(contactNumber)}
-          number={Boolean(contactNumber) ? contactNumber : t("text-no-contact")}
-        />
-      </div> */}
     </div>
   );
 };
