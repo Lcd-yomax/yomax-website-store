@@ -18,6 +18,7 @@ import ItemCard from '@components/checkout/item/item-card';
 import { ItemInfoRow } from '@components/checkout/item/item-info-row';
 import PaymentGrid from '@components/checkout/payment/payment-grid';
 import { PlaceOrderAction } from '@components/checkout/action/place-order-action';
+import { WhatsAppOrderAction } from '@components/checkout/action/whatsapp-order-action';
 
 interface Props {
   className?: string;
@@ -129,6 +130,7 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
       </div>
       <PaymentGrid className="px-6 py-5 border border-gray-100" />
       <PlaceOrderAction>{t('button-place-order')}</PlaceOrderAction>
+      <WhatsAppOrderAction />
     </div>
   );
 };
