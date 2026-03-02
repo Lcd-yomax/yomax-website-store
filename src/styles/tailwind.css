@@ -416,7 +416,7 @@
 }
 
 /* Breadcrumb truncate last child */
-.chawkbazarBreadcrumb li:last-child {
+.YomaxBreadcrumb li:last-child {
   @apply truncate;
 }
 

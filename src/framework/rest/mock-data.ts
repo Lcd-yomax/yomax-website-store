@@ -19,7 +19,7 @@ const placeholderImageGrid = {
 export const mockSettings = {
     id: 1,
     options: {
-        siteTitle: 'ChawkBazar',
+        siteTitle: 'Yomax',
         siteSubtitle: 'Fastest E-commerce template',
         currency: 'USD',
         minimumOrderAmount: 0,
@@ -42,8 +42,8 @@ export const mockSettings = {
         shippingClass: 1,
         seo: {
             ogImage: null,
-            ogTitle: 'ChawkBazar',
-            metaTitle: 'ChawkBazar',
+            ogTitle: 'Yomax',
+            metaTitle: 'Yomax',
             metaTags: '',
             canonicalUrl: '',
             ogDescription: 'Fastest E-commerce template',
@@ -94,8 +94,8 @@ function makeProduct(id: number, name: string, price: number, salePrice?: number
         type: { id: 1, name: 'Fashion', slug: 'fashion', icon: 'DressIcon' },
         shop: {
             id: 1,
-            name: 'ChawkBazar Store',
-            slug: 'chawkbazar-store',
+            name: 'Yomax Store',
+            slug: 'Yomax-store',
             is_active: 1,
             logo: placeholderImage,
             cover_image: placeholderImage,
@@ -253,7 +253,7 @@ function makeShop(id: number, name: string) {
 }
 
 export const mockShops = [
-    makeShop(1, 'ChawkBazar Store'),
+    makeShop(1, 'Yomax Store'),
     makeShop(2, 'Urban Fashion'),
     makeShop(3, 'SportZone'),
     makeShop(4, 'Elegant Boutique'),
@@ -392,7 +392,7 @@ export const mockTerms = {
             id: 1,
             title: 'Terms of Service',
             slug: 'terms-of-service',
-            description: 'These are the terms of service for using ChawkBazar...',
+            description: 'These are the terms of service for using Yomax...',
             is_approved: true,
             type: 'global',
         },
@@ -416,7 +416,7 @@ export const mockBecomeSeller = {
     page_options: {
         banner: {
             heading: 'Become a Seller',
-            subHeading: 'Start selling your products on ChawkBazar today!',
+            subHeading: 'Start selling your products on Yomax today!',
             image: placeholderImage,
         },
         sellerInformation: [],

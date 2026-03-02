@@ -19,7 +19,7 @@ const Logo: React.FC<React.AnchorHTMLAttributes<{}>> = ({
     >
       <Image
         src={logo?.original ?? siteSettings.logo.url}
-        alt={siteTitle || 'ChawkBazar Logo'}
+        alt={siteTitle || 'Yomax Logo'}
         height={siteSettings.logo.height}
         width={siteSettings.logo.width}
         loading="eager"

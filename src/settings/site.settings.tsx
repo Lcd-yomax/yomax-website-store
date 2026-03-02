@@ -17,7 +17,7 @@ import { WishlistIcon } from '@components/icons/my-account/wishlist';
 import { DownloadsIcon } from '@components/icons/my-account/downloads';
 
 export const siteSettings = {
-  name: 'ChawkBazar',
+  name: 'Yomax',
   description:
     'Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.',
   author: {
@@ -27,7 +27,7 @@ export const siteSettings = {
   },
   logo: {
     url: '/assets/images/logo.svg',
-    alt: 'ChawkBazar',
+    alt: 'Yomax',
     href: '/',
     width: 95,
     height: 30,

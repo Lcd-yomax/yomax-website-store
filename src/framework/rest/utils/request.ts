@@ -30,7 +30,7 @@ request.interceptors.request.use(
       (error.response && error.response.status === 401) ||
       (error.response && error.response.status === 403) ||
       (error.response &&
-        error.response.data.message === 'CHAWKBAZAR_ERROR.NOT_AUTHORIZED')
+        error.response.data.message === 'YOMAX_ERROR.NOT_AUTHORIZED')
     ) {
       Cookies.remove(AUTH_TOKEN);
       Router.reload();
