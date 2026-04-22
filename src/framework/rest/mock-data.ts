@@ -91,7 +91,7 @@ function makeProduct(id: number, name: string, price: number, salePrice?: number
         gallery: [placeholderImage, placeholderImageGrid],
         categories: [],
         tags: [],
-        type: { id: 1, name: 'Fashion', slug: 'fashion', icon: 'DressIcon' },
+        type: { id: 1, name: 'Tools', slug: 'tools', icon: 'ToolsIcon' },
         shop: {
             id: 1,
             name: 'Yomax Store',
@@ -112,18 +112,18 @@ function makeProduct(id: number, name: string, price: number, salePrice?: number
 }
 
 export const mockProducts = [
-    makeProduct(1, 'Classic Leather Jacket', 199.99, 149.99),
-    makeProduct(2, 'Slim Fit Denim Jeans', 89.99),
-    makeProduct(3, 'Cotton Crew T-Shirt', 29.99, 19.99),
-    makeProduct(4, 'Wool Blend Overcoat', 349.99, 279.99),
-    makeProduct(5, 'Running Sneakers Pro', 129.99),
-    makeProduct(6, 'Silk Evening Dress', 259.99, 199.99),
-    makeProduct(7, 'Casual Chino Pants', 69.99),
-    makeProduct(8, 'Linen Summer Shirt', 49.99, 39.99),
-    makeProduct(9, 'Waterproof Hiking Boots', 179.99),
-    makeProduct(10, 'Cashmere Scarf', 89.99, 69.99),
-    makeProduct(11, 'Polarized Sunglasses', 159.99),
-    makeProduct(12, 'Canvas Tote Bag', 45.99, 35.99),
+    makeProduct(1, 'iPhone 14 Pro Max LCD Display', 199.99, 149.99),
+    makeProduct(2, 'Sunshine Soldering Iron Station', 89.99),
+    makeProduct(3, 'Samsung Galaxy S23 Ultra Battery', 29.99, 19.99),
+    makeProduct(4, 'Mechanic Precision Screwdriver Set', 349.99, 279.99),
+    makeProduct(5, 'Yaxun Heat Gun SMD Rework', 129.99),
+    makeProduct(6, 'Xiaomi Redmi Note 12 Touch Screen', 259.99, 199.99),
+    makeProduct(7, 'Huawei P30 Pro Glass Replacement', 69.99),
+    makeProduct(8, 'Anti-Static Tweezers Set', 49.99, 39.99),
+    makeProduct(9, 'M Triangle LCD Separator Machine', 179.99),
+    makeProduct(10, 'iPhone 13 Pro Charging Port Flex', 89.99, 69.99),
+    makeProduct(11, 'Oppo Reno 8 Camera Lens Glass', 159.99),
+    makeProduct(12, 'Vivo V25 Back Cover', 45.99, 35.99),
 ];
 
 export const mockProductPaginator = {
@@ -153,50 +153,49 @@ function makeCategory(id: number, name: string, image?: string) {
         parent: null,
         children: [],
         products_count: Math.floor(Math.random() * 50) + 5,
-        type: { id: 1, name: 'Fashion', slug: 'fashion' },
+        type: { id: 1, name: 'Tools', slug: 'tools' },
         created_at: '2024-01-01T00:00:00.000Z',
         updated_at: '2024-01-01T00:00:00.000Z',
     };
 }
 
 export const mockCategories = [
-    makeCategory(1, 'Men'),
-    makeCategory(2, 'Women'),
-    makeCategory(3, 'Kids'),
-    makeCategory(4, 'Sports'),
-    makeCategory(5, 'Accessories'),
-    makeCategory(6, 'Shoes'),
-    makeCategory(7, 'Bags'),
-    makeCategory(8, 'Watches'),
-    makeCategory(9, 'Jewelry'),
-    makeCategory(10, 'Electronics'),
+    makeCategory(1, 'TOOLS'),
+    makeCategory(2, 'ACCESSOIRES'),
+    makeCategory(3, 'LCD'),
+    makeCategory(4, 'ELECTRO MENAGER'),
+    makeCategory(5, 'PIECES DE RECHANGE'),
+    makeCategory(6, 'BATTERIES'),
+    makeCategory(7, 'Electro'),
+    makeCategory(8, 'GLASS'),
+    makeCategory(9, 'TELEPHONE'),
+    makeCategory(10, 'TOUCH'),
 ];
 
 // ─── Types / Brands ───────────────────────────────────────
-export const mockTypes = [
-    {
-        id: 1,
-        name: 'Fashion',
-        slug: 'fashion',
+function makeType(id: number, name: string) {
+    return {
+        id,
+        name,
+        slug: name.toLowerCase().replace(/\s+/g, '-'),
         icon: 'DressIcon',
         promotional_sliders: [],
-        settings: { isHome: true, productCard: 'neon', layoutType: 'modern' },
+        settings: { isHome: id === 1, productCard: 'neon', layoutType: 'modern' },
         banners: [],
         created_at: '2024-01-01T00:00:00.000Z',
         updated_at: '2024-01-01T00:00:00.000Z',
-    },
-    {
-        id: 2,
-        name: 'Casual Wear',
-        slug: 'casual-wear',
-        icon: 'DressIcon',
-        promotional_sliders: [],
-        settings: { isHome: false, productCard: 'neon', layoutType: 'modern' },
-        banners: [],
-        created_at: '2024-01-01T00:00:00.000Z',
-        updated_at: '2024-01-01T00:00:00.000Z',
-    },
+    };
+}
+
+const brandNames = [
+    'ALCATEL', 'ASUS', 'BLACK VIEW', 'BLU', 'CUBOT', 'DIFFUSEUR', 'DOOGEE', 'FONENG', 
+    'GOOGLE PIXEL', 'HUAWEI', 'IKU', 'INFINIX', 'IPHONE', 'ITEL', 'K18', 'LENOVO', 'LG', 
+    'LINKSTAR', 'M TRIANGLE', 'MECHANIC', 'MOTOROLA', 'NOKIA', 'NOTCH', 'ONE PLUS', 'OPPO', 
+    'OUKITEL', 'REALME', 'REAXION', 'SAMSUNG', 'SONY', 'STG', 'SUNSHINE', 'TABLETTE', 'TCL', 
+    'TECNO', 'TRON', 'VIVO', 'WIKO', 'XIAOMI', 'YAXUN', 'ZATEC', 'ZTE'
 ];
+
+export const mockTypes = brandNames.map((name, index) => makeType(index + 1, name));
 
 export const mockTypePaginator = {
     data: mockTypes,
@@ -254,11 +253,11 @@ function makeShop(id: number, name: string) {
 
 export const mockShops = [
     makeShop(1, 'Yomax Store'),
-    makeShop(2, 'Urban Fashion'),
-    makeShop(3, 'SportZone'),
-    makeShop(4, 'Elegant Boutique'),
+    makeShop(2, 'ProRepair Hub'),
+    makeShop(3, 'Parts Universe'),
+    makeShop(4, 'iFix Station'),
     makeShop(5, 'Tech Haven'),
-    makeShop(6, 'Kids World'),
+    makeShop(6, 'Mobile Gear'),
 ];
 
 export const mockShopPaginator = {

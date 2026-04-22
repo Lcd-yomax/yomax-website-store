@@ -13,7 +13,7 @@ interface ProductsProps {
   sectionHeading: string;
   categorySlug?: string;
   className?: string;
-  variant?: "flat" | "left" | "center" | "combined" | "fashion";
+  variant?: "flat" | "left" | "center" | "combined" | "tech";
   limit?: number;
 }
 

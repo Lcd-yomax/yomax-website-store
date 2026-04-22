@@ -15,7 +15,7 @@ interface ProductsProps {
   sectionHeading: string;
   categorySlug?: string;
   className?: string;
-  variant?: 'default' | 'center' | 'left' | 'fashion';
+  variant?: 'default' | 'center' | 'left' | 'tech';
   productVariant?: 'grid' | 'gridSlim' | 'list' | 'listSmall';
   imageHeight?: number;
   imageWidth?: number;
@@ -50,12 +50,12 @@ const SaleBannerWithProducts: React.FC<ProductsProps> = ({
       ) : (
         <div
           className={`grid grid-cols-1 ${
-            variant === 'fashion'
+            variant === 'tech'
               ? '2xl:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 xl:grid-cols-4'
               : '2xl:grid-cols-4 2xl:grid-rows-2 md:grid-cols-2'
           } gap-3 md:gap-6 lg:gap-5 xl:gap-7`}
         >
-          {variant === 'fashion' ? (
+          {variant === 'tech' ? (
             <div className="grid order-2 gap-5 col-span-full sm:col-span-full sm:grid-cols-4 2xl:col-span-2 2xl:row-span-2 md:gap-8 sm:gap-3">
               <BannerCard
                 data={bannerData[0]}

@@ -17,22 +17,22 @@ import { WishlistIcon } from '@components/icons/my-account/wishlist';
 import { DownloadsIcon } from '@components/icons/my-account/downloads';
 
 export const siteSettings = {
-  name: 'Yomax',
+  name: 'FixParts',
   description:
-    'Fastest E-commerce template built with React, NextJS, TypeScript, React-Query and Tailwind CSS.',
+    'Premium Mobile Spare Parts and Electronics Repair Tools.',
   author: {
-    name: 'RedQ',
-    websiteUrl: 'https://redq.io',
+    name: 'FixParts',
+    websiteUrl: 'https://fixparts.com',
     address: '',
   },
   logo: {
     url: '/assets/images/logo.svg',
-    alt: 'Yomax',
+    alt: 'FixParts',
     href: '/',
     width: 95,
     height: 30,
   },
-  chatButtonUrl: 'https://www.facebook.com/redqinc',
+  chatButtonUrl: 'https://www.facebook.com/fixparts',
   defaultLanguage: 'en',
   currency: 'USD',
   site_header: {

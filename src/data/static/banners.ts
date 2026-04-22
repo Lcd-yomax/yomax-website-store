@@ -1439,7 +1439,7 @@ export const homeEightCoupons = {
   },
 };
 
-export const fashionHomeHeroGridSlider = [
+export const techHomeHeroGridSlider = [
   {
     id: 1,
     title: "Men's Collection",
@@ -1544,19 +1544,19 @@ export const fashionHomeHeroGridSlider = [
   },
 ];
 
-export const fashionSaleBannerWithProducts = [
+export const techSaleBannerWithProducts = [
   {
     id: 1,
     title: 'Sale Offer',
     slug: 'sale-offer',
     image: {
       mobile: {
-        url: '/assets/images/banner/fashion-sale-banner-1.png',
+        url: '/assets/images/banner/tech-sale-banner-1.png',
         width: 900,
         height: 400,
       },
       desktop: {
-        url: '/assets/images/banner/fashion-sale-banner-1.png',
+        url: '/assets/images/banner/tech-sale-banner-1.png',
         width: 1770,
         height: 780,
       },
@@ -1568,12 +1568,12 @@ export const fashionSaleBannerWithProducts = [
     slug: 'new-sports',
     image: {
       mobile: {
-        url: '/assets/images/banner/fashion-sale-banner-2.png',
+        url: '/assets/images/banner/tech-sale-banner-2.png',
         width: 1770,
         height: 780,
       },
       desktop: {
-        url: '/assets/images/banner/fashion-sale-banner-2.png',
+        url: '/assets/images/banner/tech-sale-banner-2.png',
         width: 1770,
         height: 780,
       },
@@ -1581,19 +1581,19 @@ export const fashionSaleBannerWithProducts = [
   },
 ];
 
-export const fashionSaleBannerDataGallery = [
+export const techSaleBannerDataGallery = [
   {
     id: 1,
     title: 'New Sports',
     slug: 'new-sports',
     image: {
       mobile: {
-        url: '/assets/images/banner/grid/banner-fashion-1.png',
+        url: '/assets/images/banner/grid/banner-tech-1.png',
         width: 592,
         height: 403,
       },
       desktop: {
-        url: '/assets/images/banner/grid/banner-fashion-1.png',
+        url: '/assets/images/banner/grid/banner-tech-1.png',
         width: 592,
         height: 403,
       },
@@ -1605,12 +1605,12 @@ export const fashionSaleBannerDataGallery = [
     slug: 'new-sports',
     image: {
       mobile: {
-        url: '/assets/images/banner/grid/banner-fashion-2.png',
+        url: '/assets/images/banner/grid/banner-tech-2.png',
         width: 592,
         height: 403,
       },
       desktop: {
-        url: '/assets/images/banner/grid/banner-fashion-2.png',
+        url: '/assets/images/banner/grid/banner-tech-2.png',
         width: 592,
         height: 403,
       },
@@ -1622,12 +1622,12 @@ export const fashionSaleBannerDataGallery = [
     slug: 'new-sports',
     image: {
       mobile: {
-        url: '/assets/images/banner/grid/banner-fashion-3.png',
+        url: '/assets/images/banner/grid/banner-tech-3.png',
         width: 592,
         height: 403,
       },
       desktop: {
-        url: '/assets/images/banner/grid/banner-fashion-3.png',
+        url: '/assets/images/banner/grid/banner-tech-3.png',
         width: 592,
         height: 403,
       },

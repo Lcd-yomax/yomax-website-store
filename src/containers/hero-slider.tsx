@@ -28,7 +28,7 @@ interface Props {
   data: any;
   className?: string;
   buttonGroupClassName?: string;
-  variant?: 'box' | 'fullWidth' | 'fashion';
+  variant?: 'box' | 'fullWidth' | 'tech';
   variantRounded?: 'rounded' | 'default';
   paginationPosition?: 'left' | 'right' | 'center' | 'none';
   buttonClassName?: string;
@@ -68,7 +68,7 @@ const HeroSlider: React.FC<Props> = ({
         showNavigation={false}
         scrollbar={{ draggable: true, hide: false }}
         buttonPosition={buttonPosition}
-        breakpoints={variant === 'fashion' ? breakpoints : {}}
+        breakpoints={variant === 'tech' ? breakpoints : {}}
       >
         {data?.map((banner: any) => (
           <SwiperSlide
@@ -81,7 +81,7 @@ const HeroSlider: React.FC<Props> = ({
               variant={variantRounded}
               classNameInner={cn('', {
                 'aspect-[2.25/1]': variant === 'box',
-                'aspect-[2/2.6]': variant === 'fashion',
+                'aspect-[2/2.6]': variant === 'tech',
                 'aspect-[2/1] md:aspect-[2.13/1]': variant === 'fullWidth',
               })}
             />
