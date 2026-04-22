@@ -208,7 +208,6 @@ const Header: React.FC<Props> = ({ variant = 'default' }) => {
 						</div> */}
 
             <CartButton />
-            <LoginButton />
           </div>
         </div>
       </div>

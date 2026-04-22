@@ -2,8 +2,8 @@
 export const masonryBanner = [
   {
     id: 1,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-1.jpg',
@@ -20,8 +20,8 @@ export const masonryBanner = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Stock',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-2.jpg',
@@ -38,8 +38,8 @@ export const masonryBanner = [
   },
   {
     id: 3,
-    title: 'Dress Women',
-    slug: 'womens-collection',
+    title: 'LCD Screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-3.jpg',
@@ -56,8 +56,8 @@ export const masonryBanner = [
   },
   {
     id: 4,
-    title: 'Exclusive Sunglasses',
-    slug: 'exclusive-sunglasses',
+    title: 'Pro Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-4.jpg',
@@ -74,8 +74,8 @@ export const masonryBanner = [
   },
   {
     id: 5,
-    title: 'Product Coupons',
-    slug: 'product-coupons',
+    title: 'Special Offers',
+    slug: 'accessoires',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-5.jpg',
@@ -92,8 +92,8 @@ export const masonryBanner = [
   },
   {
     id: 6,
-    title: 'New Backpack',
-    slug: 'new-backpack',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-6.jpg',
@@ -113,8 +113,8 @@ export const masonryBanner = [
 export const gridBanner = [
   {
     id: 1,
-    title: 'Women T-Shirts Collection',
-    slug: 'mens-collection',
+    title: 'Phone Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-mobile-1.jpg',
@@ -131,8 +131,8 @@ export const gridBanner = [
   },
   {
     id: 2,
-    title: 'Women Jins Collection',
-    slug: 'womens-collection',
+    title: 'Accessories',
+    slug: 'accessoires',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-mobile-2.jpg',
@@ -149,8 +149,8 @@ export const gridBanner = [
   },
   {
     id: 3,
-    title: 'New Backpack',
-    slug: 'new-backpack',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-mobile-3.jpg',
@@ -170,8 +170,8 @@ export const gridBanner = [
 export const promotionBanner = [
   {
     id: 1,
-    title: 'Travel Baggage',
-    slug: 'new-backpack',
+    title: 'Repair Kits',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/slider/mobile/banner-1.jpg',
@@ -188,8 +188,8 @@ export const promotionBanner = [
   },
   {
     id: 2,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/slider/mobile/banner-2.jpg',
@@ -206,8 +206,8 @@ export const promotionBanner = [
   },
   {
     id: 3,
-    title: 'Winter Collection',
-    slug: 'winter-collection',
+    title: 'LCD & Glass',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/slider/mobile/banner-3.jpg',
@@ -224,8 +224,8 @@ export const promotionBanner = [
   },
   {
     id: 4,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/slider/mobile/banner-2.jpg',
@@ -246,8 +246,8 @@ export const promotionBanner = [
 export const modernDemoBanner = [
   {
     id: 1,
-    title: 'Winter Collection of Kid Items',
-    slug: 'winter-collection',
+    title: 'Electronics Range',
+    slug: 'electro',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-3.jpg',
@@ -263,8 +263,8 @@ export const modernDemoBanner = [
   },
   {
     id: 2,
-    title: 'Offer Off Everything',
-    slug: 'winter-offer',
+    title: 'Great Deals',
+    slug: 'special-deals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-4.jpg',
@@ -300,8 +300,8 @@ export const modernDemoProductBanner = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-sale-offer-reverse.jpg',
@@ -320,8 +320,8 @@ export const modernDemoProductBanner = [
 // Demo Two -> Standard Demo
 export const standardDemoBanner = {
   id: 1,
-  title: 'Holiday Offers',
-  slug: 'winter-offer',
+  title: 'Special Deals',
+  slug: 'special-deals',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-1.jpg',
@@ -339,8 +339,8 @@ export const standardDemoBanner = {
 export const standardDemoHeroBanner = [
   {
     id: 1,
-    title: 'winter collection',
-    slug: 'winter-collection',
+    title: 'spare parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-1.jpg',
@@ -356,8 +356,8 @@ export const standardDemoHeroBanner = [
   },
   {
     id: 2,
-    title: 'gift collection',
-    slug: 'gift-collection',
+    title: 'repair tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-2.jpg',
@@ -373,8 +373,8 @@ export const standardDemoHeroBanner = [
   },
   {
     id: 3,
-    title: 'party collection',
-    slug: 'gift-collection',
+    title: 'lcd & glass',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-3.jpg',
@@ -390,8 +390,8 @@ export const standardDemoHeroBanner = [
   },
   {
     id: 4,
-    title: 'gift collection',
-    slug: 'gift-collection',
+    title: 'repair tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-2.jpg',
@@ -410,8 +410,8 @@ export const standardDemoHeroBanner = [
 export const standardDemoPromotionBanner = [
   {
     id: 1,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-1.jpg',
@@ -427,8 +427,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 2,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-2.jpg',
@@ -444,8 +444,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 3,
-    title: "Kid's Collection",
-    slug: 'kids-collection',
+    title: 'Batteries',
+    slug: 'batteries',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-3.jpg',
@@ -461,8 +461,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 4,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-2.jpg',
@@ -478,8 +478,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 5,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-1.jpg',
@@ -495,8 +495,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 6,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-2.jpg',
@@ -512,8 +512,8 @@ export const standardDemoPromotionBanner = [
   },
   {
     id: 7,
-    title: "Kid's Collection",
-    slug: 'kids-collection',
+    title: 'Batteries',
+    slug: 'batteries',
     image: {
       mobile: {
         url: '/assets/images/banner/small/banner-mobile-3.jpg',
@@ -532,8 +532,8 @@ export const standardDemoPromotionBanner = [
 // Demo Three -> Minimal Demo
 export const minimalDemoBanner = {
   id: 1,
-  title: 'Holiday Offers',
-  slug: 'winter-offer',
+  title: 'Special Deals',
+  slug: 'special-deals',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-1.jpg',
@@ -551,8 +551,8 @@ export const minimalDemoBanner = {
 export const minimalDemoHeroBanner = [
   {
     id: 1,
-    title: 'winter collection',
-    slug: 'winter-collection',
+    title: 'spare parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-1.jpg',
@@ -568,8 +568,8 @@ export const minimalDemoHeroBanner = [
   },
   {
     id: 2,
-    title: 'gift collection',
-    slug: 'gift-collection',
+    title: 'repair tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-2.jpg',
@@ -585,8 +585,8 @@ export const minimalDemoHeroBanner = [
   },
   {
     id: 3,
-    title: 'party collection',
-    slug: 'gift-collection',
+    title: 'lcd screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-3.jpg',
@@ -623,8 +623,8 @@ export const vintageDemoProductBanner = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-sale-offer-reverse.jpg',
@@ -643,8 +643,8 @@ export const vintageDemoProductBanner = [
 export const vintageDemoBanner = [
   {
     id: 1,
-    title: 'New Backpack',
-    slug: 'new-backpack',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-6.png',
@@ -660,8 +660,8 @@ export const vintageDemoBanner = [
   },
   {
     id: 2,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-5.png',
@@ -677,8 +677,8 @@ export const vintageDemoBanner = [
   },
   {
     id: 3,
-    title: 'Offer Off Everything',
-    slug: 'winter-offer',
+    title: 'Great Deals',
+    slug: 'special-deals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-4.jpg',
@@ -715,8 +715,8 @@ export const vintageDemoGridBanner = [
   },
   {
     id: 2,
-    title: 'Casual Top',
-    slug: 'womens-collection',
+    title: 'Phone Cases',
+    slug: 'accessoires',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/small/banner-mobile-2.jpg',
@@ -733,8 +733,8 @@ export const vintageDemoGridBanner = [
   },
   {
     id: 3,
-    title: 'Branded Top',
-    slug: 'womens-collection',
+    title: 'Screen Protectors',
+    slug: 'glass',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/small/banner-mobile-3.jpg',
@@ -755,8 +755,8 @@ export const vintageDemoGridBanner = [
 export const classicDemoBanner = [
   {
     id: 1,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-1.jpg',
@@ -773,8 +773,8 @@ export const classicDemoBanner = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-2.jpg',
@@ -791,8 +791,8 @@ export const classicDemoBanner = [
   },
   {
     id: 3,
-    title: 'Dress Women',
-    slug: 'womens-collection',
+    title: 'LCD Screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-3.jpg',
@@ -829,8 +829,8 @@ export const classicDemoProductBanner = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-sale-offer-reverse.jpg',
@@ -849,8 +849,8 @@ export const classicDemoProductBanner = [
 export const classicDemoBannerTwo = [
   {
     id: 1,
-    title: 'Exclusive Sunglasses',
-    slug: 'exclusive-sunglasses',
+    title: 'Pro Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-4.jpg',
@@ -867,8 +867,8 @@ export const classicDemoBannerTwo = [
   },
   {
     id: 2,
-    title: 'Product Coupons',
-    slug: 'product-coupons',
+    title: 'Special Offers',
+    slug: 'accessoires',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-5.jpg',
@@ -885,8 +885,8 @@ export const classicDemoBannerTwo = [
   },
   {
     id: 3,
-    title: 'New Backpack',
-    slug: 'new-backpack',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-6.jpg',
@@ -905,8 +905,8 @@ export const classicDemoBannerTwo = [
 
 export const classicDemoBannerThree = {
   id: 1,
-  title: 'Winter Collection of Kid Items',
-  slug: 'winter-collection',
+  title: 'Electronics Range',
+  slug: 'electro',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-3.jpg',
@@ -924,8 +924,8 @@ export const classicDemoBannerThree = {
 export const trendyDemoHeroBanner = [
   {
     id: 1,
-    title: 'winter collection',
-    slug: 'winter-collection',
+    title: 'spare parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/trendy/mobile/banner-1.jpg',
@@ -941,8 +941,8 @@ export const trendyDemoHeroBanner = [
   },
   {
     id: 2,
-    title: 'gift collection',
-    slug: 'gift-collection',
+    title: 'repair tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/trendy/mobile/banner-2.jpg',
@@ -958,8 +958,8 @@ export const trendyDemoHeroBanner = [
   },
   {
     id: 3,
-    title: 'party collection',
-    slug: 'gift-collection',
+    title: 'lcd screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/trendy/mobile/banner-3.jpg',
@@ -978,8 +978,8 @@ export const trendyDemoHeroBanner = [
 export const saleBannerGrid = [
   {
     id: 1,
-    title: '25% Discount on Selected Items',
-    slug: 't-shirts-collection',
+    title: '25% Off Selected Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-4.png',
@@ -995,8 +995,8 @@ export const saleBannerGrid = [
   },
   {
     id: 2,
-    title: '30% Discount on Kids Items',
-    slug: 'jins-collection',
+    title: '30% Off Accessories',
+    slug: 'accessoires',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-5.png',
@@ -1015,8 +1015,8 @@ export const saleBannerGrid = [
 export const homeTrendyCoupons = [
   {
     id: 1,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-7.jpg',
@@ -1035,8 +1035,8 @@ export const homeTrendyCoupons = [
 export const homeTrendyProductWithBanner = [
   {
     id: 1,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-7.jpg',
@@ -1052,8 +1052,8 @@ export const homeTrendyProductWithBanner = [
   },
   {
     id: 2,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-mobile-7.jpg',
@@ -1072,8 +1072,8 @@ export const homeTrendyProductWithBanner = [
 export const homeElegantHeroSlider = [
   {
     id: 1,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-7.jpg',
@@ -1089,8 +1089,8 @@ export const homeElegantHeroSlider = [
   },
   {
     id: 2,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-8.jpg',
@@ -1106,8 +1106,8 @@ export const homeElegantHeroSlider = [
   },
   {
     id: 3,
-    title: 'We picked every item with care you must try',
-    slug: 'winter-collection',
+    title: 'We source every part with quality you can trust',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/banner-mobile-9.jpg',
@@ -1126,8 +1126,8 @@ export const homeElegantHeroSlider = [
 export const elegantBannerDataThree = [
   {
     id: 1,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-7.jpg',
@@ -1144,8 +1144,8 @@ export const elegantBannerDataThree = [
   },
   {
     id: 2,
-    title: "New Kid's",
-    slug: "new-kid's",
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-8.jpg',
@@ -1162,8 +1162,8 @@ export const elegantBannerDataThree = [
   },
   {
     id: 3,
-    title: 'Dress Women',
-    slug: 'dress-women',
+    title: 'LCD Screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-9.jpg',
@@ -1182,8 +1182,8 @@ export const elegantBannerDataThree = [
 
 export const elegantHomeBanner = {
   id: 1,
-  title: 'Winter Collection of Kid Items',
-  slug: 'winter-collection',
+  title: 'Electronics Range',
+  slug: 'electro',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-8.jpg',
@@ -1201,8 +1201,8 @@ export const elegantHomeBanner = {
 export const homeRefinedHeroBanner = [
   {
     id: 1,
-    title: 'winter collection',
-    slug: 'winter-collection',
+    title: 'spare parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-4.jpg',
@@ -1218,8 +1218,8 @@ export const homeRefinedHeroBanner = [
   },
   {
     id: 2,
-    title: 'gift collection',
-    slug: 'gift-collection',
+    title: 'repair tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-2.jpg',
@@ -1235,8 +1235,8 @@ export const homeRefinedHeroBanner = [
   },
   {
     id: 3,
-    title: 'party collection',
-    slug: 'party-collection',
+    title: 'lcd screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/hero/two/banner-mobile-3.jpg',
@@ -1272,8 +1272,8 @@ export const saleBannerWithProducts = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/banner-sale-offer-half-mobile.jpg',
@@ -1292,8 +1292,8 @@ export const saleBannerWithProducts = [
 export const bannerDataFour = [
   {
     id: 1,
-    title: 'Exclusive Sunglasses',
-    slug: 'exclusive-sunglasses',
+    title: 'Pro Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-10.jpg',
@@ -1310,8 +1310,8 @@ export const bannerDataFour = [
   },
   {
     id: 2,
-    title: 'Summer Collection',
-    slug: 'summer-collection',
+    title: 'LCD Range',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-11.jpg',
@@ -1328,8 +1328,8 @@ export const bannerDataFour = [
   },
   {
     id: 3,
-    title: 'Dress Women',
-    slug: 'dress-women',
+    title: 'LCD Screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-9.jpg',
@@ -1349,8 +1349,8 @@ export const bannerDataFour = [
 export const bannerDataFourMobile = [
   {
     id: 1,
-    title: 'Exclusive Sunglasses',
-    slug: 'exclusive-sunglasses',
+    title: 'Pro Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-10.jpg',
@@ -1367,8 +1367,8 @@ export const bannerDataFourMobile = [
   },
   {
     id: 2,
-    title: 'Dress Women',
-    slug: 'dress-women',
+    title: 'LCD Screens',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-9.jpg',
@@ -1385,8 +1385,8 @@ export const bannerDataFourMobile = [
   },
   {
     id: 3,
-    title: 'Summer Collection',
-    slug: 'summer-collection',
+    title: 'LCD Range',
+    slug: 'lcd',
     image: {
       mobile: {
         url: '/assets/images/banner/masonry/banner-mobile-11.jpg',
@@ -1405,8 +1405,8 @@ export const bannerDataFourMobile = [
 
 export const homeEightWinterBanner = {
   id: 1,
-  title: 'Winter Clearance Sale',
-  slug: 'winter-collection',
+  title: 'Clearance Sale',
+  slug: 'pieces-de-rechange',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-10.jpg',
@@ -1424,7 +1424,7 @@ export const homeEightWinterBanner = {
 export const homeEightCoupons = {
   id: 1,
   title: '20% OFF EVERYTHING',
-  slug: 'gift-collection',
+  slug: 'accessoires',
   image: {
     mobile: {
       url: '/assets/images/banner/banner-mobile-9.jpg',
@@ -1442,8 +1442,8 @@ export const homeEightCoupons = {
 export const techHomeHeroGridSlider = [
   {
     id: 1,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-1.jpg',
@@ -1459,8 +1459,8 @@ export const techHomeHeroGridSlider = [
   },
   {
     id: 2,
-    title: "Kid's Collection",
-    slug: 'kids-collection',
+    title: 'Batteries',
+    slug: 'batteries',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-2.jpg',
@@ -1476,8 +1476,8 @@ export const techHomeHeroGridSlider = [
   },
   {
     id: 3,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-3.jpg',
@@ -1493,8 +1493,8 @@ export const techHomeHeroGridSlider = [
   },
   {
     id: 4,
-    title: "Men's Collection",
-    slug: 'mens-collection',
+    title: 'Repair Tools',
+    slug: 'tools',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-1.jpg',
@@ -1510,8 +1510,8 @@ export const techHomeHeroGridSlider = [
   },
   {
     id: 5,
-    title: "Kid's Collection",
-    slug: 'kids-collection',
+    title: 'Batteries',
+    slug: 'batteries',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-2.jpg',
@@ -1527,8 +1527,8 @@ export const techHomeHeroGridSlider = [
   },
   {
     id: 6,
-    title: "Women's Collection",
-    slug: 'womens-collection',
+    title: 'Spare Parts',
+    slug: 'pieces-de-rechange',
     image: {
       mobile: {
         url: '/assets/images/hero/small/banner-3.jpg',
@@ -1564,8 +1564,8 @@ export const techSaleBannerWithProducts = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/tech-sale-banner-2.png',
@@ -1584,8 +1584,8 @@ export const techSaleBannerWithProducts = [
 export const techSaleBannerDataGallery = [
   {
     id: 1,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-tech-1.png',
@@ -1601,8 +1601,8 @@ export const techSaleBannerDataGallery = [
   },
   {
     id: 2,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-tech-2.png',
@@ -1618,8 +1618,8 @@ export const techSaleBannerDataGallery = [
   },
   {
     id: 3,
-    title: 'New Sports',
-    slug: 'new-sports',
+    title: 'New Arrivals',
+    slug: 'new-arrivals',
     image: {
       mobile: {
         url: '/assets/images/banner/grid/banner-tech-3.png',

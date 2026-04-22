@@ -1,18 +1,18 @@
 export const exclusiveBlock = {
-  exclusiveName: "text-new-year",
-  year: 2021,
+  exclusiveName: "text-featured-products",
+  year: null,
   exclusiveData: [
     {
       id: 1,
-      slug: "/collections/womens-collection",
-      buttonText: "button-women-exclusive",
+      slug: "/search?category=lcd",
+      buttonText: "button-shop-lcd",
       image: "/assets/images/exclusive/women.png",
       backgroundColor: "bg-gray-150",
     },
     {
       id: 2,
-      slug: "/collections/mens-collection",
-      buttonText: "button-men-exclusive",
+      slug: "/search?category=tools",
+      buttonText: "button-shop-tools",
       image: "/assets/images/exclusive/men.png",
       backgroundColor: "bg-linenSecondary",
     },
