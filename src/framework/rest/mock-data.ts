@@ -493,13 +493,26 @@ export function getMockData(url: string, _params?: unknown): any {
                 const slug = cleanUrl.split('/')[1];
                 return mockCategories.find(c => c.slug === slug) || mockCategories[0];
             }
-            return mockCategories;
+            return {
+                data: mockCategories,
+                current_page: 1,
+                last_page: 1,
+                total: mockCategories.length,
+                per_page: 30,
+                from: 1,
+                to: mockCategories.length,
+                first_page_url: '',
+                last_page_url: '',
+                next_page_url: null,
+                prev_page_url: null,
+                path: '',
+            };
         case 'types':
             if (cleanUrl.includes('/')) {
                 const slug = cleanUrl.split('/')[1];
                 return mockTypes.find(t => t.slug === slug) || mockTypes[0];
             }
-            return mockTypes;
+            return mockTypePaginator;
         case 'tags':
             if (cleanUrl.includes('/')) {
                 const slug = cleanUrl.split('/')[1];

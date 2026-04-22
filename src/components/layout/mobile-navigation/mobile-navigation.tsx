@@ -1,29 +1,16 @@
 import HomeIcon from '@components/icons/home-icon';
 import MenuIcon from '@components/icons/menu-icon';
 import SearchIcon from '@components/icons/search-icon';
-import UserIcon from '@components/icons/user-icon';
 import Link from '@components/ui/link';
 import { useUI } from '@contexts/ui.context';
-import { ROUTES } from '@lib/routes';
-import { authorizationAtom } from '@store/authorization-atom';
-import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
 import { useCallback } from 'react';
 const CartButton = dynamic(() => import('@components/cart/cart-button'), {
   ssr: false,
 });
-const AuthMenu = dynamic(() => import('@components/layout/header/auth-menu'), {
-  ssr: false,
-});
 
 const BottomNavigation: React.FC = () => {
-  const { openSearch, openModal, setModalView, openSidebar } = useUI();
-  const [isAuthorize] = useAtom(authorizationAtom);
-
-  const handleLogin = useCallback(() => {
-    setModalView('LOGIN_VIEW');
-    return openModal();
-  }, []);
+  const { openSearch, openSidebar } = useUI();
 
   const handleMobileMenu = useCallback(() => {
     return openSidebar({
@@ -52,18 +39,6 @@ const BottomNavigation: React.FC = () => {
           <HomeIcon />
         </Link>
         <CartButton />
-        <AuthMenu
-          isAuthorized={isAuthorize}
-          href={ROUTES.ACCOUNT}
-          className="flex-shrink-0"
-          btnProps={{
-            className: 'flex-shrink-0 focus:outline-none',
-            children: <UserIcon />,
-            onClick: handleLogin,
-          }}
-        >
-          <UserIcon />
-        </AuthMenu>
       </div>
     </>
   );
