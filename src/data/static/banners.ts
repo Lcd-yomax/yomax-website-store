@@ -11,7 +11,7 @@ export const masonryBanner = [
         height: 232,
       },
       desktop: {
-        url: '/assets/images/banner/masonry/banner-1.jpg',
+        url: '/assets/images/banner/masonry/banner-1.png',
         width: 1078,
         height: 425,
       },
