@@ -28,12 +28,6 @@ import { useWindowSize } from 'react-use';
 const CartButton = dynamic(() => import('@components/cart/cart-button'), {
   ssr: false,
 });
-const LoginButton = dynamic(
-  () => import('@components/layout/header/login-button'),
-  {
-    ssr: false,
-  },
-);
 interface Props {
   variant?: 'default' | 'modern';
 }

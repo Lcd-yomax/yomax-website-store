@@ -10,14 +10,7 @@ import { useContact } from '@framework/contact';
 import { useSettings } from '@framework/settings';
 import { CreateContactUsInput } from '@type/index';
 import { useTranslation } from 'next-i18next';
-import dynamic from 'next/dynamic';
 import { SubmitHandler } from 'react-hook-form';
-const JoinButton = dynamic(
-  () => import('@components/layout/header/login-button'),
-  {
-    ssr: false,
-  },
-);
 
 const MoreInfo = () => {
   const { t } = useTranslation('common');
@@ -38,9 +31,7 @@ const MoreInfo = () => {
           <span className="sr-only">{t('text-close')}</span>
           <CloseIcon className="h-4 w-4" />
         </button>
-        <div className="flex items-center gap-5 xs:gap-6 sm:gap-7">
-          <JoinButton />
-        </div>
+        <div className="flex items-center gap-5 xs:gap-6 sm:gap-7" />
       </div>
       <Scrollbar>
         <div className="p-5 pt-12 md:p-10">

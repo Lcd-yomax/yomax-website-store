@@ -1,16 +1,6 @@
-import { getLayout } from "@components/layout/layout";
-import AccountLayout from "@components/my-account/account-layout";
-import ChangePassword from "@components/my-account/change-password";
-
-export { getStaticProps } from "@framework/common.ssr";
-
-export default function ChangePasswordPage() {
-  return (
-    <AccountLayout>
-      <ChangePassword />
-    </AccountLayout>
-  );
-}
-
-ChangePasswordPage.authenticate = true;
-ChangePasswordPage.getLayout = getLayout;
+import { GetStaticProps } from "next";
+export const getStaticProps: GetStaticProps = async () => ({
+  redirect: { destination: "/", permanent: false },
+  props: {},
+});
+export default function ChangePasswordPage() { return null; }
