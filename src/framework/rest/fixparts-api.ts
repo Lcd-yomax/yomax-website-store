@@ -85,9 +85,19 @@ function placeholderImage() {
     };
 }
 
+function proxyImageUrl(url: string | null): string | null {
+    if (!url) return null;
+    // Rewrite http://localhost:PORT/images/... → /api/images/...
+    // so Next.js never tries to optimize an upstream private-IP URL.
+    const match = url.match(/\/images\/(.+)$/);
+    if (match) return `/api/images/${match[1]}`;
+    return url;
+}
+
 function attachment(url: string | null) {
-    if (!url) return placeholderImage();
-    return { id: 1, thumbnail: url, original: url };
+    const safe = proxyImageUrl(url);
+    if (!safe) return placeholderImage();
+    return { id: 1, thumbnail: safe, original: safe };
 }
 
 // ─── Transformers: Go shape → frontend shape ───────────────────────
@@ -239,20 +249,30 @@ function parseSearchString(search: string | undefined): Record<string, string> {
 let brandCache: any[] | null = null;
 let categoryCache: any[] | null = null;
 
-async function getBrandBySlug(slug: string): Promise<any | null> {
+async function getAllBrands(): Promise<any[]> {
     if (!brandCache) {
         const raw = await fetchJson<RawListResponse<RawBrand>>('/api/brands');
         brandCache = raw.data.map(transformBrand);
     }
-    return brandCache.find((b) => b.slug === slug) ?? null;
+    return brandCache;
 }
 
-async function getCategoryBySlug(slug: string): Promise<any | null> {
+async function getAllCategories(): Promise<any[]> {
     if (!categoryCache) {
         const raw = await fetchJson<RawListResponse<RawCategory>>('/api/categories');
         categoryCache = raw.data.map(transformCategory);
     }
-    return categoryCache.find((c) => c.slug === slug) ?? null;
+    return categoryCache;
+}
+
+async function getBrandBySlug(slug: string): Promise<any | null> {
+    const all = await getAllBrands();
+    return all.find((b) => b.slug === slug) ?? null;
+}
+
+async function getCategoryBySlug(slug: string): Promise<any | null> {
+    const all = await getAllCategories();
+    return all.find((c) => c.slug === slug) ?? null;
 }
 
 // ─── Public dispatcher ─────────────────────────────────────────────
@@ -277,11 +297,11 @@ export async function getFixpartsData(
                 const brand = await getBrandBySlug(slug);
                 return brand ? [brand] : null;
             }
-            const raw = await fetchJson<RawListResponse<RawBrand>>('/api/brands');
-            const items = raw.data.map(transformBrand);
+            const items = await getAllBrands();
             const limit = Number(params?.limit ?? items.length);
-            const paged = items.slice(0, limit);
-            return emptyPaginator(paged, items.length, 1, limit || items.length);
+            const page = Number(params?.page ?? 1);
+            const paged = items.slice((page - 1) * limit, page * limit);
+            return emptyPaginator(paged, items.length, page, limit || items.length);
         }
 
         // ── /api/categories ───────────────────────────────────────
@@ -291,13 +311,11 @@ export async function getFixpartsData(
                 const cat = await getCategoryBySlug(slug);
                 return cat ? [cat] : null;
             }
-            const raw = await fetchJson<RawListResponse<RawCategory>>(
-                '/api/categories',
-            );
-            const items = raw.data.map(transformCategory);
+            const items = await getAllCategories();
             const limit = Number(params?.limit ?? items.length);
-            const paged = items.slice(0, limit);
-            return emptyPaginator(paged, items.length, 1, limit || items.length);
+            const page = Number(params?.page ?? 1);
+            const paged = items.slice((page - 1) * limit, page * limit);
+            return emptyPaginator(paged, items.length, page, limit || items.length);
         }
 
         // ── /api/products ─────────────────────────────────────────
