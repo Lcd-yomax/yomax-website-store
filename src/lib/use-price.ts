@@ -2,6 +2,10 @@ import { useMemo } from "react";
 import { useRouter } from "next/router";
 import { useSettings } from "@contexts/settings.context";
 
+const PRICES_HIDDEN =
+  process.env.NEXT_PUBLIC_HIDE_PRICES === 'true' ||
+  process.env.NEXT_PUBLIC_HIDE_PRICES === '1';
+
 export function formatPrice({
   amount,
   currencyCode,
@@ -13,6 +17,8 @@ export function formatPrice({
   locale: string;
   fractions: number;
 }) {
+  if (PRICES_HIDDEN) return '';
+
   const formatCurrency = new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: currencyCode,
@@ -61,6 +67,7 @@ export default function usePrice(
   const { formation = 'en-US', fractions = 2 } = currencyOptions!;
   const { locale } = useRouter();
   const value = useMemo(() => {
+    if (PRICES_HIDDEN) return "";
     if (typeof amount !== "number" || !currencyCode) return "";
     const currentLocale = formation ? formation : 'en';
     return baseAmount

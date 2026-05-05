@@ -115,3 +115,25 @@
     max-height: calc(100vh - 128px);
   }
 }
+
+/* Brand filter scrollbar in shop sidebar */
+.brand-filter-scrollbar {
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.brand-filter-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.brand-filter-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+.brand-filter-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+.brand-filter-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}

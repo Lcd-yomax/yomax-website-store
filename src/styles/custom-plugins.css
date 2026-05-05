@@ -2,31 +2,34 @@
 .accordion.rc-collapse {
   @apply bg-transparent border-0 space-y-2.5;
 }
-.accordion.rc-collapse > .rc-collapse-item {
+
+.accordion.rc-collapse>.rc-collapse-item {
   @apply px-6 bg-gray-200 border-0 rounded-md;
 }
-.accordion.rc-collapse > .rc-collapse-item > .rc-collapse-header {
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header {
   @apply px-0 py-4 outline-none;
 }
-.accordion.rc-collapse > .rc-collapse-item > .rc-collapse-header h3 {
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header h3 {
   @apply py-0.5 transition duration-200 ease-in;
   letter-spacing: 0.015em;
 }
-.accordion.rc-collapse > .rc-collapse-item > .rc-collapse-header:hover h3 {
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-header:hover h3 {
   @apply text-black;
 }
-.accordion.rc-collapse > .rc-collapse-item > .rc-collapse-content {
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content {
   @apply py-0 pl-0 bg-transparent ltr:pr-32 rtl:pl-32 text-body;
 }
-.accordion.rc-collapse
-  > .rc-collapse-item
-  > .rc-collapse-content
-  > .rc-collapse-content-box {
+
+.accordion.rc-collapse>.rc-collapse-item>.rc-collapse-content>.rc-collapse-content-box {
   @apply pb-5 my-0 text-sm leading-6;
 }
 
 .react-tabs__tab--selected {
-  @apply font-semibold  rounded-md bg-gray-100 !important;
+  @apply font-semibold rounded-md bg-gray-100 !important;
 }
 
 .react-stars {
@@ -37,15 +40,19 @@
 .Toastify .fancy-progress-bar {
   background: rgba(255, 255, 255, 0.45);
 }
+
 .Toastify__toast-theme--colored.Toastify__toast--dark {
   background-color: #121212 !important;
 }
+
 @media (max-width: 480px) {
+
   .Toastify .Toastify__toast-container--top-left,
   .Toastify .Toastify__toast-container--top-center,
   .Toastify .Toastify__toast-container--top-right {
     top: 66px;
   }
+
   .Toastify .Toastify__toast-container {
     width: calc(100vw - 32px);
     left: 50%;
@@ -54,13 +61,16 @@
     overflow: hidden;
   }
 }
+
 .drawer-search {
   transform: translate(-50%, 50px);
 }
+
 .drawer-search.open {
   @apply fixed top-0 visible block opacity-100;
   transform: translate(-50%, 0);
 }
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.35);
   z-index: 21;
@@ -74,10 +84,12 @@
   @apply ltr:left-0 rtl:right-0;
   transition: 0.35s ease-in-out;
 }
+
 .overlay.open {
   @apply opacity-100;
   visibility: visible;
 }
+
 /*
 * RC Pagination
 */
@@ -92,6 +104,7 @@
 .rc-pagination.rc-pagination-simple .rc-pagination-next {
   @apply flex items-center justify-center w-8 h-8 mt-2 transition-all bg-white border border-gray-300 rounded cursor-pointer ltr:mr-2 rtl:ml-2 hover:border-heading hover:text-heading focus:border-gray-100 focus:text-heading;
 }
+
 .rc-pagination .rc-pagination-next {
   @apply mr-0;
 }
@@ -152,9 +165,11 @@
 .rc-table thead.rc-table-thead th {
   @apply bg-gray-100 py-3 px-4 md:px-5 font-body font-bold text-sm md:text-[15px] lg:text-base text-heading border-gray-100;
 }
+
 .rc-table .rc-table-cell.rc-table-cell-row-hover {
   @apply bg-gray-200;
 }
+
 .rc-table tr.rc-table-row:hover {
   background-color: inherit;
 }
@@ -167,7 +182,7 @@
   cursor: pointer;
 }
 
-.rc-table tr.rc-table-expanded-row > td {
+.rc-table tr.rc-table-expanded-row>td {
   @apply p-0 whitespace-normal border border-gray-50;
 }
 
@@ -178,13 +193,16 @@
 .rc-table .rc-table-expanded-row-fixed::after {
   border-width: 0;
 }
+
 .subOrderTable.rc-table {
   @apply pb-0;
 }
+
 .subOrderTable.rc-table thead.rc-table-thead th:first-of-type,
 .subOrderTable.rc-table tr.rc-table-row td:first-of-type {
   @apply ltr:pl-7 rtl:pr-7;
 }
+
 .subOrderTable.rc-table tr.rc-table-row td {
   @apply px-4 py-6 md:px-5;
 }
@@ -195,13 +213,16 @@
   border-color: transparent !important;
   box-shadow: none !important;
 }
+
 .react-tel-input .country-list {
   margin-top: 7px !important;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) !important;
 }
+
 .rtl-view .react-tel-input .selected-flag {
   @apply pr-3;
 }
+
 .rtl-view .react-tel-input .selected-flag .arrow {
   @apply left-auto right-8;
 }
@@ -210,28 +231,36 @@
 .card-view-table {
   @apply pb-0;
 }
+
 .card-view-table table {
   border-collapse: unset;
 }
+
 .card-view-table .rc-table-thead tr th {
   @apply border-b-0 bg-[#F7F7FA] py-4;
 }
+
 .card-view-table .rc-table-tbody tr td {
   @apply border-0 border-b border-solid border-[#e1e7ec] py-5 transition-all duration-300;
 }
+
 .row-highlight .rc-table-cell {
   @apply bg-[#F7F7F7];
 }
+
 .rc-table-cell.rc-table-cell-row-hover .default-card-button,
 .rc-table-cell.rc-table-cell-row-hover .make-default-card {
   @apply opacity-100;
 }
+
 .row-highlight .rc-table-cell.rc-table-cell-row-hover {
   @apply !bg-[#ebebeb];
 }
+
 .card-view-table .rc-table-tbody tr:last-child td {
   @apply border-b-0;
 }
+
 .notify-button:hover .notify-button-icon svg {
   animation: 4s ease-in-out 0.05s infinite normal none running ring;
   transform-origin: 50% 4px;
@@ -241,90 +270,117 @@
   0% {
     transform: rotate(0);
   }
+
   1% {
     transform: rotate(30deg);
   }
+
   3% {
     transform: rotate(-28deg);
   }
+
   5% {
     transform: rotate(34deg);
   }
+
   7% {
     transform: rotate(-32deg);
   }
+
   9% {
     transform: rotate(30deg);
   }
+
   11% {
     transform: rotate(-28deg);
   }
+
   13% {
     transform: rotate(26deg);
   }
+
   15% {
     transform: rotate(-24deg);
   }
+
   17% {
     transform: rotate(22deg);
   }
+
   19% {
     transform: rotate(-20deg);
   }
+
   21% {
     transform: rotate(18deg);
   }
+
   23% {
     transform: rotate(-16deg);
   }
+
   25% {
     transform: rotate(14deg);
   }
+
   27% {
     transform: rotate(-12deg);
   }
+
   29% {
     transform: rotate(10deg);
   }
+
   31% {
     transform: rotate(-8deg);
   }
+
   33% {
     transform: rotate(6deg);
   }
+
   35% {
     transform: rotate(-4deg);
   }
+
   37% {
     transform: rotate(2deg);
   }
+
   39% {
     transform: rotate(-1deg);
   }
+
   41% {
     transform: rotate(1deg);
   }
+
   43% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(0);
   }
 }
+
 .info-button:hover .info-button-icon svg {
   animation: 2s ease-in-out 0s infinite normal none running shake;
 }
 
 @keyframes shake {
+
   0%,
   20%,
   80%,
   100% {
     transform: translateX(0px);
   }
+
   40% {
     transform: translateX(-5px);
   }
+
   60% {
     transform: translateX(6px);
   }
@@ -338,6 +394,7 @@
   0% {
     transform: translateY(5px) scale(0.8);
   }
+
   100% {
     transform: translateY(0px) scale(1);
   }

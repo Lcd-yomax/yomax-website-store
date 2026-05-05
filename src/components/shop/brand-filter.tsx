@@ -53,7 +53,7 @@ export const BrandFilter = () => {
       <h3 className="text-heading text-sm md:text-base font-semibold mb-7">
         {t('text-brands')}
       </h3>
-      <div className="mt-2 flex flex-col space-y-4">
+      <div className="mt-2 flex flex-col space-y-4 brand-filter-scrollbar">
         {!isLoading &&
           data?.map((brand) => (
             <CheckBox
