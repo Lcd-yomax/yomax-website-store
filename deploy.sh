@@ -28,25 +28,13 @@ if [ ! -f .env ]; then
     exit 1
 fi
 
-# ─── 3. Also ensure fixparts-sync/.env exists ─────────────────────
-if [ ! -f fixparts-sync/.env ]; then
-    echo "→ Creating fixparts-sync/.env from example..."
-    cp fixparts-sync/.env.example fixparts-sync/.env
-    echo ""
-    echo "⚠️  Edit fixparts-sync/.env and set DB_PASSWORD and IMAGE_BASE_URL, then re-run."
-    echo ""
-    exit 1
-fi
-
-# ─── 4. Stop old backend-only stack if running ────────────────────
+# ─── 3. Stop old nginx only (keep fixparts-sync + db running) ─────
 if docker ps -q --filter "name=fixparts-nginx" | grep -q .; then
-    echo "→ Stopping old backend-only stack..."
-    cd fixparts-sync
-    docker compose -f docker-compose.prod.yml down 2>/dev/null || true
-    cd ..
+    echo "→ Stopping old nginx (keeping backend + db running)..."
+    docker stop fixparts-nginx && docker rm fixparts-nginx
 fi
 
-# ─── 5. Build and start full stack ────────────────────────────────
+# ─── 4. Build and start frontend + nginx ─────────────────────────
 echo "→ Building and starting full stack (this may take a few minutes)..."
 docker compose -f docker-compose.prod.yml up -d --build
 
