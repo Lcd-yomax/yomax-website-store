@@ -10,6 +10,7 @@ module.exports = withPWA({
     dest: 'public',
     runtimeCaching,
   },
+  output: 'standalone',
   i18n,
   images: {
     remotePatterns: [
