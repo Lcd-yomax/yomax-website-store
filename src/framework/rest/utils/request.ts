@@ -5,6 +5,7 @@ import pickBy from 'lodash/pickBy';
 import Router from 'next/router';
 import { getToken } from './get-token';
 import { MOCK_ENABLED, getMockData } from '@framework/mock-data';
+import { FIXPARTS_ENABLED, getFixpartsData } from '@framework/fixparts-api';
 
 const request = axios.create({
   baseURL: process.env.NEXT_PUBLIC_REST_API_ENDPOINT || 'http://localhost:8000/api', // fallback to prevent crash
@@ -41,6 +42,10 @@ request.interceptors.request.use(
 
 export class HttpClient {
   static async get<T>(url: string, params?: unknown) {
+    if (FIXPARTS_ENABLED) {
+      const data = await getFixpartsData(url, params);
+      if (data !== null) return data as T;
+    }
     if (MOCK_ENABLED) {
       const mockData = getMockData(url, params);
       if (mockData !== null) return mockData as T;

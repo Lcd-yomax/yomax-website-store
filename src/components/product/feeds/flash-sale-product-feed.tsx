@@ -25,7 +25,7 @@ const banner = {
       height: 150,
     },
     desktop: {
-      url: '/assets/images/banner/banner-2.jpg',
+      url: '/assets/images/banner/banner-2.png',
       width: 1190,
       height: 450,
     },

@@ -64,33 +64,7 @@ const VerifiedItemList: React.FC<Props> = ({ className }) => {
         )}
       </div>
 
-      <div className="">
-        <ItemInfoRow title={t('text-sub-total')} value={sub_total} />
-        {discount && coupon ? (
-          <div className="flex justify-between px-6 py-5 border-t border-gray-100">
-            <p className="text-sm text-body ltr:mr-4 rtl:ml-4">
-              {t('text-discount')}
-            </p>
-            <span className="text-xs font-semibold text-red-500 flex items-center ltr:mr-auto rtl:ml-auto">
-              ({coupon?.code})
-              <button onClick={() => setCoupon(null)}>
-                <CloseIcon className="w-3 h-3 ltr:ml-2 rtl:mr-2" />
-              </button>
-            </span>
-            <span className="text-sm text-body">{discountPrice}</span>
-          </div>
-        ) : (
-          <div className="flex justify-between py-4 px-6 border-t border-gray-100">
-            <Coupon subtotal={base_amount} />
-          </div>
-        )}
-        <div className="flex justify-between border-t-4 border-double border-gray-100 py-4 px-6">
-          <p className="text-base font-semibold text-heading">
-            {t('text-total')}
-          </p>
-          <span className="text-base font-semibold text-heading">{total}</span>
-        </div>
-      </div>
+      
       <WhatsAppOrderAction />
     </div>
   );

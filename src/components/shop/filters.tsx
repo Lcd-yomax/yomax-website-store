@@ -1,18 +1,14 @@
 import { CategoryFilter } from "./category-filter";
 import { BrandFilter } from "./brand-filter";
 import { FilteredItem } from "./filtered-item";
-import { PriceFilter } from "./price-filter";
 import { useRouter } from "next/router";
 import isEmpty from "lodash/isEmpty";
 import { useTranslation } from "next-i18next";
-import { useAttributes } from "@framework/attributes";
-import { AttributesFilter } from "@components/shop/attributes-filter";
 
 export const ShopFilters: React.FC = () => {
 	const router = useRouter();
 	const { pathname, query } = router;
 	const { t } = useTranslation("common");
-  const { data } = useAttributes();
   return (
 		<div className="pt-1">
 			<div className="block border-b border-gray-300 pb-7 mb-7">
@@ -49,9 +45,6 @@ export const ShopFilters: React.FC = () => {
 
 			<CategoryFilter />
 			<BrandFilter />
-			<PriceFilter />
-
-      {data && <AttributesFilter attributes={data} />}
 		</div>
 	);
 };

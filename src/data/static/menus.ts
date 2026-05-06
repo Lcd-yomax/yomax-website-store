@@ -102,11 +102,16 @@ export const menu = [
   },
   {
     id: 3,
+    path: '/search',
+    label: 'menu-all-products',
+  },
+  {
+    id: 4,
     path: '/shops',
     label: 'menu-shops',
   },
   {
-    id: 4,
+    id: 5,
     path: '/contact-us',
     label: 'menu-contact-us',
   },
@@ -179,6 +184,7 @@ export const mobileMenu = [
       { id: 10, path: '/search?category=touch', label: 'menu-touch' },
     ],
   },
-  { id: 3, path: '/shops', label: 'menu-shops' },
-  { id: 4, path: '/contact-us', label: 'menu-contact-us' },
+  { id: 3, path: '/search', label: 'menu-all-products' },
+  { id: 4, path: '/shops', label: 'menu-shops' },
+  { id: 5, path: '/contact-us', label: 'menu-contact-us' },
 ];

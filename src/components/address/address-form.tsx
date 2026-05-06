@@ -7,8 +7,9 @@ import { useTranslation } from "next-i18next";
 import * as yup from "yup";
 import { AddressType } from "@framework/utils/constants";
 import { Form } from "@components/ui/forms/form";
-import { useUpdateCustomer } from "@framework/customer";
 import { useUI } from "@contexts/ui.context";
+
+const useUpdateCustomer = () => ({ mutate: (_input: unknown) => {} });
 import { GoogleMapLocation } from "@type/index";
 
 type FormValues = {

@@ -1,10 +1,8 @@
-import { OTP } from '@framework/otp';
 import { customerContactAtom } from '@store/checkout';
 import { useAtom } from 'jotai';
 import { useTranslation } from 'next-i18next';
 import { useUI } from '@contexts/ui.context';
 import React from 'react';
-import { useSettings } from '@framework/settings';
 import PhoneNumberForm from '@components/auth/otp/phone-number-form';
 
 type Props = {
@@ -18,14 +16,7 @@ type Props = {
 const AddOrUpdateCheckoutContact: React.FC<Props> = () => {
   const { closeModal } = useUI();
   const { t } = useTranslation('common');
-  const { data: settings } = useSettings();
-  const { useOtp } = settings?.options!;
   const [contactNumber, setContactNumber] = useAtom(customerContactAtom);
-
-  function onContactUpdate(phone_number: string) {
-    setContactNumber(phone_number);
-    closeModal();
-  }
 
   function onNumberUpdate({ phone_number }: { phone_number: string }) {
     setContactNumber(phone_number);
@@ -38,18 +29,10 @@ const AddOrUpdateCheckoutContact: React.FC<Props> = () => {
         {contactNumber ? t('text-update') : t('text-add-new')}{' '}
         {t('text-contact-number')}
       </h3>
-      {useOtp ? (
-        <OTP
-          phoneNumber={contactNumber}
-          //@ts-ignore
-          onVerify={onContactUpdate}
-        />
-      ) : (
-        <PhoneNumberForm
-          onSubmit={onNumberUpdate}
-          phoneNumber={contactNumber}
-        />
-      )}
+      <PhoneNumberForm
+        onSubmit={onNumberUpdate}
+        phoneNumber={contactNumber}
+      />
     </div>
   );
 };
