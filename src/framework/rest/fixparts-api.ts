@@ -158,7 +158,7 @@ function transformProduct(raw: RawProduct): any {
         is_taxable: false,
         status: 'publish',
         product_type: 'simple',
-        unit: '1 pc',
+        unit: '',
         image: img,
         gallery: [img],
         categories: raw.category_id

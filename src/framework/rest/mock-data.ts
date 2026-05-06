@@ -1,6 +1,18 @@
 /**
- * Mock data for running the Shop frontend without the Laravel backend.
- * These provide realistic placeholder data for all major API endpoints.
+ * Mock data for endpoints the Go sync service doesn't expose.
+ *
+ * Real data routing:
+ *   - products  → fixparts-api → Go server
+ *   - brands    → fixparts-api → Go server
+ *   - categories→ fixparts-api → Go server
+ *
+ * Mocked here (no real backend for these):
+ *   - settings, shops, tags, coupons, attributes, FAQs, terms,
+ *     become-seller, user account
+ *
+ * If the products/brands/categories endpoints fall through to this
+ * file (e.g. fixparts is disabled or the call type isn't handled),
+ * they return an empty paginator so no fake product data renders.
  */
 
 const placeholderImage = {
@@ -9,18 +21,12 @@ const placeholderImage = {
     original: '/assets/placeholder/products/product-list.svg',
 };
 
-const placeholderImageGrid = {
-    id: 1,
-    thumbnail: '/assets/placeholder/products/product-grid.svg',
-    original: '/assets/placeholder/products/product-grid.svg',
-};
-
 // ─── Settings ──────────────────────────────────────────────
 export const mockSettings = {
     id: 1,
     options: {
         siteTitle: 'Yomax',
-        siteSubtitle: 'Fastest E-commerce template',
+        siteSubtitle: 'Mobile Spare Parts & Repair Tools',
         currency: 'USD',
         minimumOrderAmount: 0,
         currencyToWalletRatio: 3,
@@ -46,9 +52,9 @@ export const mockSettings = {
             metaTitle: 'Yomax',
             metaTags: '',
             canonicalUrl: '',
-            ogDescription: 'Fastest E-commerce template',
+            ogDescription: 'Mobile Spare Parts & Repair Tools',
             twitterHandle: '',
-            metaDescription: 'Fastest E-commerce template',
+            metaDescription: 'Mobile Spare Parts & Repair Tools',
             twitterCardType: 'summary',
         },
         google: { isEnable: false, tagManagerId: '' },
@@ -69,142 +75,15 @@ export const mockSettings = {
     },
 };
 
-// ─── Products ──────────────────────────────────────────────
-function makeProduct(id: number, name: string, price: number, salePrice?: number) {
-    return {
-        id,
-        name,
-        slug: name.toLowerCase().replace(/\s+/g, '-'),
-        description: `High quality ${name}. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
-        price,
-        sale_price: salePrice ?? null,
-        min_price: salePrice ?? price,
-        max_price: price,
-        sku: `SKU-${id.toString().padStart(4, '0')}`,
-        quantity: 50,
-        in_stock: true,
-        is_taxable: true,
-        status: 'publish',
-        product_type: 'simple',
-        unit: '1 pc',
-        image: placeholderImage,
-        gallery: [placeholderImage, placeholderImageGrid],
-        categories: [],
-        tags: [],
-        type: { id: 1, name: 'Tools', slug: 'tools', icon: 'ToolsIcon' },
-        shop: {
-            id: 1,
-            name: 'Yomax Store',
-            slug: 'Yomax-store',
-            is_active: 1,
-            logo: placeholderImage,
-            cover_image: placeholderImage,
-        },
-        ratings: 4.5,
-        total_reviews: 12,
-        variations: [],
-        variation_options: [],
-        author: null,
-        manufacturer: null,
-        created_at: '2024-01-15T10:00:00.000Z',
-        updated_at: '2024-01-15T10:00:00.000Z',
-    };
-}
-
-export const mockProducts = [
-    makeProduct(1, 'iPhone 14 Pro Max LCD Display', 199.99, 149.99),
-    makeProduct(2, 'Sunshine Soldering Iron Station', 89.99),
-    makeProduct(3, 'Samsung Galaxy S23 Ultra Battery', 29.99, 19.99),
-    makeProduct(4, 'Mechanic Precision Screwdriver Set', 349.99, 279.99),
-    makeProduct(5, 'Yaxun Heat Gun SMD Rework', 129.99),
-    makeProduct(6, 'Xiaomi Redmi Note 12 Touch Screen', 259.99, 199.99),
-    makeProduct(7, 'Huawei P30 Pro Glass Replacement', 69.99),
-    makeProduct(8, 'Anti-Static Tweezers Set', 49.99, 39.99),
-    makeProduct(9, 'M Triangle LCD Separator Machine', 179.99),
-    makeProduct(10, 'iPhone 13 Pro Charging Port Flex', 89.99, 69.99),
-    makeProduct(11, 'Oppo Reno 8 Camera Lens Glass', 159.99),
-    makeProduct(12, 'Vivo V25 Back Cover', 45.99, 35.99),
-];
-
-export const mockProductPaginator = {
-    data: mockProducts,
-    current_page: 1,
-    first_page_url: '',
-    from: 1,
-    last_page: 1,
-    last_page_url: '',
-    next_page_url: null,
-    path: '',
-    per_page: 30,
-    prev_page_url: null,
-    to: mockProducts.length,
-    total: mockProducts.length,
-};
-
-// ─── Categories ────────────────────────────────────────────
-function makeCategory(id: number, name: string, image?: string) {
-    return {
-        id,
-        name,
-        slug: name.toLowerCase().replace(/\s+/g, '-'),
-        icon: 'DressIcon',
-        image: image ? { id, thumbnail: image, original: image } : placeholderImageGrid,
-        details: null,
-        parent: null,
-        children: [],
-        products_count: Math.floor(Math.random() * 50) + 5,
-        type: { id: 1, name: 'Tools', slug: 'tools' },
-        created_at: '2024-01-01T00:00:00.000Z',
-        updated_at: '2024-01-01T00:00:00.000Z',
-    };
-}
-
-export const mockCategories = [
-    makeCategory(1, 'TOOLS'),
-    makeCategory(2, 'ACCESSOIRES'),
-    makeCategory(3, 'LCD'),
-    makeCategory(4, 'ELECTRO MENAGER'),
-    makeCategory(5, 'PIECES DE RECHANGE'),
-    makeCategory(6, 'BATTERIES'),
-    makeCategory(7, 'Electro'),
-    makeCategory(8, 'GLASS'),
-    makeCategory(9, 'TELEPHONE'),
-    makeCategory(10, 'TOUCH'),
-];
-
-// ─── Types / Brands ───────────────────────────────────────
-function makeType(id: number, name: string) {
-    return {
-        id,
-        name,
-        slug: name.toLowerCase().replace(/\s+/g, '-'),
-        icon: 'DressIcon',
-        promotional_sliders: [],
-        settings: { isHome: id === 1, productCard: 'neon', layoutType: 'modern' },
-        banners: [],
-        created_at: '2024-01-01T00:00:00.000Z',
-        updated_at: '2024-01-01T00:00:00.000Z',
-    };
-}
-
-const brandNames = [
-    'ALCATEL', 'ASUS', 'BLACK VIEW', 'BLU', 'CUBOT', 'DIFFUSEUR', 'DOOGEE', 'FONENG', 
-    'GOOGLE PIXEL', 'HUAWEI', 'IKU', 'INFINIX', 'IPHONE', 'ITEL', 'K18', 'LENOVO', 'LG', 
-    'LINKSTAR', 'M TRIANGLE', 'MECHANIC', 'MOTOROLA', 'NOKIA', 'NOTCH', 'ONE PLUS', 'OPPO', 
-    'OUKITEL', 'REALME', 'REAXION', 'SAMSUNG', 'SONY', 'STG', 'SUNSHINE', 'TABLETTE', 'TCL', 
-    'TECNO', 'TRON', 'VIVO', 'WIKO', 'XIAOMI', 'YAXUN', 'ZATEC', 'ZTE'
-];
-
-export const mockTypes = brandNames.map((name, index) => makeType(index + 1, name));
-
-export const mockTypePaginator = {
-    data: mockTypes,
+// ─── Empty paginator (used for product/brand/category fallbacks) ───
+export const emptyPaginator = {
+    data: [],
     current_page: 1,
     last_page: 1,
-    total: mockTypes.length,
-    per_page: 30,
-    from: 1,
-    to: mockTypes.length,
+    total: 0,
+    per_page: 15,
+    from: null,
+    to: null,
     first_page_url: '',
     last_page_url: '',
     next_page_url: null,
@@ -214,50 +93,59 @@ export const mockTypePaginator = {
 
 // ─── Tags ──────────────────────────────────────────────────
 export const mockTags = [
-    { id: 1, name: 'Flash Sale', slug: 'flash-sale', details: '', image: null, type: mockTypes[0] },
-    { id: 2, name: 'Featured Products', slug: 'featured-products', details: '', image: null, type: mockTypes[0] },
-    { id: 3, name: 'On Sale', slug: 'on-sale', details: '', image: null, type: mockTypes[0] },
-    { id: 4, name: 'New Arrival', slug: 'new-arrival', details: '', image: null, type: mockTypes[0] },
+    { id: 1, name: 'Flash Sale', slug: 'flash-sale', details: '', image: null, type: null },
+    { id: 2, name: 'Featured Products', slug: 'featured-products', details: '', image: null, type: null },
+    { id: 3, name: 'On Sale', slug: 'on-sale', details: '', image: null, type: null },
+    { id: 4, name: 'New Arrival', slug: 'new-arrival', details: '', image: null, type: null },
 ];
 
 // ─── Shops ─────────────────────────────────────────────────
-function makeShop(id: number, name: string) {
+function makeShop(id: number, name: string, address: object, contact: string, description: string) {
     return {
         id,
         name,
-        slug: name.toLowerCase().replace(/\s+/g, '-'),
-        description: `Welcome to ${name}. We offer the best products with competitive prices.`,
+        slug: name.toLowerCase().replace(/[\s/]+/g, '-').replace(/[^a-z0-9-]/g, ''),
+        description,
         is_active: 1,
-        orders_count: Math.floor(Math.random() * 500),
-        products_count: Math.floor(Math.random() * 100),
+        orders_count: 0,
+        products_count: 0,
         logo: placeholderImage,
         cover_image: placeholderImage,
-        address: {
-            street_address: '123 Main Street',
-            city: 'New York',
-            state: 'NY',
-            zip: '10001',
-            country: 'US',
-        },
+        address,
         settings: {
-            contact: '123-456-7890',
+            contact,
             socials: [],
-            website: 'https://example.com',
-            location: { lat: 40.7128, lng: -74.006, formattedAddress: 'New York, NY' },
+            website: 'https://www.yomax.ma',
+            location: { lat: 34.020882, lng: -6.841650, formattedAddress: 'Rabat, Morocco' },
         },
-        owner: { id: 1, name: 'Shop Owner', email: 'owner@example.com' },
+        owner: { id: 1, name: 'Yomax', email: 'contact@yomax.ma' },
         created_at: '2024-01-01T00:00:00.000Z',
         updated_at: '2024-01-01T00:00:00.000Z',
     };
 }
 
 export const mockShops = [
-    makeShop(1, 'Yomax Store'),
-    makeShop(2, 'ProRepair Hub'),
-    makeShop(3, 'Parts Universe'),
-    makeShop(4, 'iFix Station'),
-    makeShop(5, 'Tech Haven'),
-    makeShop(6, 'Mobile Gear'),
+    makeShop(
+        1,
+        'Point de Vente Rabat GZA',
+        { street_address: 'قيسارية واد الذهب الكزا رقم 74', city: 'الرباط', state: '', zip: '', country: 'MA' },
+        '',
+        'قيسارية واد الذهب الكزا الرباط رقم 74',
+    ),
+    makeShop(
+        2,
+        'Point de Vente Casablanca',
+        { street_address: 'Centre commercial takhfid reda, Magasin 208', city: 'Rabat', state: '', zip: '', country: 'MA' },
+        '',
+        'Centre commercial takhfid reda, Magasin 208, Rabat.',
+    ),
+    makeShop(
+        3,
+        'Point de Vente Fès',
+        { street_address: 'Rue Mohamed El Oukili, Kisariyat Ghita n°20', city: 'Fès', state: '', zip: '', country: 'MA' },
+        '',
+        'Centre ville, Rue Mohamed El Oukili, Kisariyat Ghita n°20, Fès.',
+    ),
 ];
 
 export const mockShopPaginator = {
@@ -276,153 +164,25 @@ export const mockShopPaginator = {
 };
 
 // ─── Coupons ───────────────────────────────────────────────
-export const mockCoupons = [
-    {
-        id: 1,
-        code: 'WELCOME10',
-        description: 'Get 10% off on your first order',
-        type: 'percentage',
-        amount: 10,
-        minimum_cart_amount: 50,
-        is_valid: true,
-        expire_at: '2027-12-31',
-        image: placeholderImage,
-        shop: mockShops[0],
-        created_at: '2024-01-01T00:00:00.000Z',
-    },
-    {
-        id: 2,
-        code: 'FLAT20',
-        description: 'Flat $20 off on orders above $100',
-        type: 'fixed',
-        amount: 20,
-        minimum_cart_amount: 100,
-        is_valid: true,
-        expire_at: '2027-12-31',
-        image: placeholderImage,
-        shop: mockShops[0],
-        created_at: '2024-01-01T00:00:00.000Z',
-    },
-];
-
-export const mockCouponPaginator = {
-    data: mockCoupons,
-    current_page: 1,
-    last_page: 1,
-    total: mockCoupons.length,
-    per_page: 30,
-    from: 1,
-    to: mockCoupons.length,
-    first_page_url: '',
-    last_page_url: '',
-    next_page_url: null,
-    prev_page_url: null,
-    path: '',
-};
+export const mockCoupons: any[] = [];
+export const mockCouponPaginator = { ...emptyPaginator };
 
 // ─── Attributes ────────────────────────────────────────────
-export const mockAttributes = [
-    {
-        id: 1,
-        name: 'Color',
-        slug: 'color',
-        values: [
-            { id: 1, value: 'Red', attribute_id: 1, meta: '#ff0000' },
-            { id: 2, value: 'Blue', attribute_id: 1, meta: '#0000ff' },
-            { id: 3, value: 'Black', attribute_id: 1, meta: '#000000' },
-            { id: 4, value: 'White', attribute_id: 1, meta: '#ffffff' },
-        ],
-    },
-    {
-        id: 2,
-        name: 'Size',
-        slug: 'size',
-        values: [
-            { id: 5, value: 'S', attribute_id: 2, meta: '' },
-            { id: 6, value: 'M', attribute_id: 2, meta: '' },
-            { id: 7, value: 'L', attribute_id: 2, meta: '' },
-            { id: 8, value: 'XL', attribute_id: 2, meta: '' },
-        ],
-    },
-];
+export const mockAttributes: any[] = [];
 
 // ─── FAQs ──────────────────────────────────────────────────
-export const mockFaqs = {
-    data: [
-        {
-            id: 1,
-            faq_title: 'How do I place an order?',
-            faq_description: 'Browse products, add to cart, and proceed to checkout. It\'s that simple!',
-            slug: 'how-to-order',
-            faq_type: 'global',
-        },
-        {
-            id: 2,
-            faq_title: 'What payment methods are accepted?',
-            faq_description: 'We accept cash on delivery, credit cards, and various digital payment methods.',
-            slug: 'payment-methods',
-            faq_type: 'global',
-        },
-        {
-            id: 3,
-            faq_title: 'How can I track my order?',
-            faq_description: 'You can track your order from the My Account > Orders section using your tracking number.',
-            slug: 'track-order',
-            faq_type: 'global',
-        },
-    ],
-    current_page: 1,
-    last_page: 1,
-    total: 3,
-    per_page: 30,
-    from: 1,
-    to: 3,
-    first_page_url: '',
-    last_page_url: '',
-    next_page_url: null,
-    prev_page_url: null,
-    path: '',
-};
+export const mockFaqs = { ...emptyPaginator };
 
 // ─── Terms and Conditions ──────────────────────────────────
-export const mockTerms = {
-    data: [
-        {
-            id: 1,
-            title: 'Terms of Service',
-            slug: 'terms-of-service',
-            description: 'These are the terms of service for using Yomax...',
-            is_approved: true,
-            type: 'global',
-        },
-    ],
-    current_page: 1,
-    last_page: 1,
-    total: 1,
-    per_page: 30,
-    from: 1,
-    to: 1,
-    first_page_url: '',
-    last_page_url: '',
-    next_page_url: null,
-    prev_page_url: null,
-    path: '',
-};
+export const mockTerms = { ...emptyPaginator };
 
 // ─── Become Seller ─────────────────────────────────────────
 export const mockBecomeSeller = {
     id: 1,
     page_options: {
-        banner: {
-            heading: 'Become a Seller',
-            subHeading: 'Start selling your products on Yomax today!',
-            image: placeholderImage,
-        },
+        banner: { heading: 'Become a Seller', subHeading: '', image: placeholderImage },
         sellerInformation: [],
-        commission: {
-            title: 'Commission',
-            description: 'We charge a competitive commission rate.',
-        },
+        commission: { title: 'Commission', description: '' },
     },
 };
 
@@ -436,95 +196,61 @@ export const mockUser = {
     profile: {
         id: 1,
         avatar: placeholderImage,
-        bio: 'Demo user account',
-        contact: '1234567890',
+        bio: '',
+        contact: '',
     },
     address: [],
     orders: { current_page: 1, data: [] },
     permissions: ['customer'],
-    wallet: { available_points: 100, total_points: 100 },
+    wallet: { available_points: 0, total_points: 0 },
     created_at: '2024-01-01T00:00:00.000Z',
 };
 
-// ─── Empty paginators for auth-required endpoints ──────────
-export const emptyPaginator = {
-    data: [],
-    current_page: 1,
-    last_page: 1,
-    total: 0,
-    per_page: 15,
-    from: null,
-    to: null,
-    first_page_url: '',
-    last_page_url: '',
-    next_page_url: null,
-    prev_page_url: null,
-    path: '',
-};
+// ─── Mode flag ─────────────────────────────────────────────
+export const MOCK_ENABLED =
+    process.env.NEXT_PUBLIC_MOCK_API === 'true' ||
+    process.env.NEXT_PUBLIC_MOCK_API === '1';
 
-// ─── Endpoint → mock data mapping ─────────────────────────
-export const MOCK_ENABLED = typeof window !== 'undefined'
-    ? (process.env.NEXT_PUBLIC_MOCK_API === 'true' || process.env.NEXT_PUBLIC_MOCK_API === '1')
-    : (process.env.NEXT_PUBLIC_MOCK_API === 'true' || process.env.NEXT_PUBLIC_MOCK_API === '1');
+// ─── Endpoint dispatcher ───────────────────────────────────
+//
+// Products, brands, and categories MUST come from the Go server.
+// If a request for those falls through here (fixparts disabled or
+// failed), return an empty paginator so no fake products show up.
+//
+// Everything else (shops, tags, settings, etc.) returns its mock
+// data normally.
 
-/**
- * Returns mock data for a given URL if available, otherwise null.
- */
 export function getMockData(url: string, _params?: unknown): any {
-    // Normalize URL
     const cleanUrl = url.replace(/^\//, '').split('?')[0];
     const basePath = cleanUrl.split('/')[0];
 
     switch (basePath) {
         case 'settings':
             return mockSettings;
+
+        // ── Real-data endpoints: never serve fakes here ──────
         case 'products':
-            if (cleanUrl.includes('/')) {
-                // Single product
-                const slug = cleanUrl.split('/')[1];
-                return mockProducts.find(p => p.slug === slug) || mockProducts[0];
-            }
-            return mockProductPaginator;
         case 'popular-products':
-            return mockProducts.slice(0, 6);
         case 'categories':
         case 'featured-categories':
-            if (cleanUrl.includes('/')) {
-                const slug = cleanUrl.split('/')[1];
-                return mockCategories.find(c => c.slug === slug) || mockCategories[0];
-            }
-            return {
-                data: mockCategories,
-                current_page: 1,
-                last_page: 1,
-                total: mockCategories.length,
-                per_page: 30,
-                from: 1,
-                to: mockCategories.length,
-                first_page_url: '',
-                last_page_url: '',
-                next_page_url: null,
-                prev_page_url: null,
-                path: '',
-            };
         case 'types':
-            if (cleanUrl.includes('/')) {
-                const slug = cleanUrl.split('/')[1];
-                return mockTypes.find(t => t.slug === slug) || mockTypes[0];
-            }
-            return mockTypePaginator;
+            return cleanUrl.includes('/') ? null : emptyPaginator;
+
+        // ── Mocked normal-data endpoints ─────────────────────
         case 'tags':
             if (cleanUrl.includes('/')) {
                 const slug = cleanUrl.split('/')[1];
                 return mockTags.find(t => t.slug === slug) || mockTags[0];
             }
             return { data: mockTags, current_page: 1, last_page: 1, total: mockTags.length, per_page: 30 };
+
         case 'shops':
             if (cleanUrl.includes('/')) {
                 const slug = cleanUrl.split('/')[1];
                 return mockShops.find(s => s.slug === slug) || mockShops[0];
             }
             return mockShopPaginator;
+
         case 'coupons':
             return mockCouponPaginator;
         case 'attributes':
@@ -532,21 +258,20 @@ export function getMockData(url: string, _params?: unknown): any {
         case 'faqs':
             return mockFaqs;
         case 'terms-and-conditions':
-            if (cleanUrl.includes('/')) {
-                return mockTerms.data[0];
-            }
+            if (cleanUrl.includes('/')) return null;
             return mockTerms;
         case 'became-seller':
             return mockBecomeSeller;
+
+        // ── Auth / user (features removed) ──────────────────
         case 'me':
             return mockUser;
         case 'orders':
-            return emptyPaginator;
         case 'downloads':
-            return emptyPaginator;
         case 'wishlists':
         case 'my-wishlists':
             return emptyPaginator;
+
         default:
             return null;
     }

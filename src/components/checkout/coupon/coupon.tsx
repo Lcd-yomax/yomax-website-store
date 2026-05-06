@@ -31,7 +31,7 @@ const Coupon = ({ subtotal }: { subtotal: number }) => {
         className="text-[13px] font-bold text-heading transition duration-200 hover:text-accent"
         onClick={() => setHasCoupon(true)}
       >
-        {t('text-have-coupon')}
+         
       </p>
     );
   }
