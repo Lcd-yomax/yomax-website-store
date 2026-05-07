@@ -1,6 +1,6 @@
-import { GetStaticProps } from "next";
-export const getStaticProps: GetStaticProps = async () => ({
+import { GetServerSideProps } from "next";
+export const getServerSideProps: GetServerSideProps = async () => ({
   redirect: { destination: "/", permanent: false },
-  props: {},
 });
+
 export default function AccountCardsPage() { return null; }
