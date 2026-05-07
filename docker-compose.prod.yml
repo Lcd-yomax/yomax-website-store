@@ -36,7 +36,6 @@ services:
       - images_data:/var/www/images:ro
     depends_on:
       - frontend
-      - backend
     networks:
       - backend_net
       - web
