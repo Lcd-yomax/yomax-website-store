@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
         ])),
         dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
       },
-      revalidate: Number(process.env.REVALIDATE_DURATION) ?? 120,
+      revalidate: Number(process.env.REVALIDATE_DURATION) || 120,
     };
   } catch (error) {
     console.warn('Data prefetch failed during build, rendering with empty state:', error);
