@@ -11,7 +11,7 @@ export const masonryBanner = [
         height: 232,
       },
       desktop: {
-        url: '/assets/images/banner/masonry/banner-1.jpg',
+        url: '/assets/images/banner/masonry/banner-1.png',
         width: 1078,
         height: 425,
       },
@@ -101,7 +101,7 @@ export const masonryBanner = [
         height: 232,
       },
       desktop: {
-        url: '/assets/images/banner/masonry/banner-6.jpg',
+        url: '/assets/images/banner/masonry/banner-6.png',
         width: 1078,
         height: 425,
       },
@@ -122,7 +122,7 @@ export const gridBanner = [
         height: 140,
       },
       desktop: {
-        url: '/assets/images/banner/grid/banner-1.jpg',
+        url: '/assets/images/banner/grid/banner-1.png',
         width: 885,
         height: 430,
       },
@@ -174,12 +174,12 @@ export const promotionBanner = [
     slug: 'tools',
     image: {
       mobile: {
-        url: '/assets/images/banner/slider/mobile/banner-1.jpg',
+        url: '/assets/images/banner/slider/mobile/banner-1.png',
         width: 450,
         height: 180,
       },
       desktop: {
-        url: '/assets/images/banner/slider/banner-1.jpg',
+        url: '/assets/images/banner/slider/banner-1.png',
         width: 1440,
         height: 570,
       },
@@ -329,7 +329,7 @@ export const standardDemoBanner = {
       height: 120,
     },
     desktop: {
-      url: '/assets/images/banner/banner-1.jpg',
+      url: '/assets/images/banner/banner-1.png',
       width: 1800,
       height: 270,
     },
@@ -348,7 +348,7 @@ export const standardDemoHeroBanner = [
         height: 275,
       },
       desktop: {
-        url: '/assets/images/hero/banner-1.jpg',
+        url: '/assets/images/hero/banner-1.png',
         width: 1800,
         height: 800,
       },
@@ -419,7 +419,7 @@ export const standardDemoPromotionBanner = [
         height: 150,
       },
       desktop: {
-        url: '/assets/images/banner/small/banner-1.jpg',
+        url: '/assets/images/banner/small/banner-1.png',
         width: 580,
         height: 360,
       },
@@ -487,7 +487,7 @@ export const standardDemoPromotionBanner = [
         height: 150,
       },
       desktop: {
-        url: '/assets/images/banner/small/banner-1.jpg',
+        url: '/assets/images/banner/small/banner-1.png',
         width: 580,
         height: 360,
       },
@@ -541,7 +541,7 @@ export const minimalDemoBanner = {
       height: 120,
     },
     desktop: {
-      url: '/assets/images/banner/banner-1.jpg',
+      url: '/assets/images/banner/banner-1.png',
       width: 1800,
       height: 270,
     },
@@ -560,7 +560,7 @@ export const minimalDemoHeroBanner = [
         height: 275,
       },
       desktop: {
-        url: '/assets/images/hero/two/banner-1.jpg',
+        url: '/assets/images/hero/two/banner-1.png',
         width: 1450,
         height: 800,
       },
@@ -652,7 +652,7 @@ export const vintageDemoBanner = [
         height: 180,
       },
       desktop: {
-        url: '/assets/images/banner/banner-6.jpg',
+        url: '/assets/images/banner/banner-6.png',
         width: 1800,
         height: 570,
       },
@@ -706,7 +706,7 @@ export const vintageDemoGridBanner = [
         height: 190,
       },
       desktop: {
-        url: '/assets/images/banner/grid/small/banner-1.jpg',
+        url: '/assets/images/banner/grid/small/banner-1.png',
         width: 980,
         height: 340,
       },
@@ -764,7 +764,7 @@ export const classicDemoBanner = [
         height: 232,
       },
       desktop: {
-        url: '/assets/images/banner/masonry/banner-1.jpg',
+        url: '/assets/images/banner/masonry/banner-1.png',
         width: 1078,
         height: 425,
       },
@@ -894,7 +894,7 @@ export const classicDemoBannerTwo = [
         height: 232,
       },
       desktop: {
-        url: '/assets/images/banner/masonry/banner-6.jpg',
+        url: '/assets/images/banner/masonry/banner-6.png',
         width: 1078,
         height: 425,
       },
@@ -928,12 +928,12 @@ export const trendyDemoHeroBanner = [
     slug: 'pieces-de-rechange',
     image: {
       mobile: {
-        url: '/assets/images/banner/trendy/mobile/banner-1.jpg',
+        url: '/assets/images/banner/trendy/mobile/banner-1.png',
         width: 480,
         height: 275,
       },
       desktop: {
-        url: '/assets/images/banner/trendy/desktop/banner-1.jpg',
+        url: '/assets/images/banner/trendy/desktop/banner-1.png',
         width: 1800,
         height: 800,
       },
@@ -1446,12 +1446,12 @@ export const techHomeHeroGridSlider = [
     slug: 'tools',
     image: {
       mobile: {
-        url: '/assets/images/hero/small/banner-1.jpg',
+        url: '/assets/images/hero/small/banner-1.png',
         width: 690,
         height: 480,
       },
       desktop: {
-        url: '/assets/images/hero/small/banner-1.jpg',
+        url: '/assets/images/hero/small/banner-1.png',
         width: 592,
         height: 770,
       },
@@ -1497,12 +1497,12 @@ export const techHomeHeroGridSlider = [
     slug: 'tools',
     image: {
       mobile: {
-        url: '/assets/images/hero/small/banner-1.jpg',
+        url: '/assets/images/hero/small/banner-1.png',
         width: 690,
         height: 480,
       },
       desktop: {
-        url: '/assets/images/hero/small/banner-1.jpg',
+        url: '/assets/images/hero/small/banner-1.png',
         width: 592,
         height: 770,
       },
